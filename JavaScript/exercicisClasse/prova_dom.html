@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+<title>Prova HTML DOM JS</title>
+<script>
+            
+</script>
+</head>
+    <body>
+        <div id="d1">
+            <p id="p1">Hola, bon dia!</p>
+            <p id="p2">Que tal?</p>
+        </div>
+        <script>
+            /*var prgf=document.createElement("p");
+            prgf.setAttribute("id", "p3");
+            var node=document.createTextNode("Hola");
+            prgf.appendChild(node);
+
+            var pare=document.getElementById("d1");
+            pare.appendChild(prgf);
+
+            var x=document.getElementById("p3").style.color="#FF0000";
+            x.innerHTML="Adeu"; */
+
+            var newP=document.createElement("p");
+            newP.setAttribute("id", "p3");
+            var newT=document.createTextNode("Hola");
+            newP.appendChild(newT);
+
+            var pare=document.getElementById("d1");
+            pare.appendChild(newP);
+
+            var p3=document.getElementById("p3");
+            p3.style.color="#FF0000";
+
+            p3.onclick = function(){changeText("Adeu")};
+
+            function changeText(txt){
+                var p3 = document.getElementById("p3");
+                p3.innerText = txt;
+            }
+
+            //Borrar un p
+
+            var pare=document.getElementById("d1");
+            var fill=document.getElementById("p2");
+            pare.removeChild(fill);
+
+        </script>
+    </body>
+</html>

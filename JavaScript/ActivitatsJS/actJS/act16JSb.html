@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 16 ARRAY Class. B</title>
+        <script>
+            function createArray(){
+                var size =prompt("Introdueix el tamany de l'array: ","");
+
+                var numbers = new Array(size);
+            
+                    var val1=prompt("Introdueix un nombre a la posició 1 de l'array: ","");
+                    numbers[0]=parseInt(val1);
+
+                    var val2=prompt("Introdueix un nombre a la posició 2 de l'array: ","");
+                    numbers[1]=parseInt(val2);
+
+                    for (var i = 2 ; i < size; i++){
+
+                        if(i%2==0){
+                            numbers[i]=numbers[0];
+                        }else{
+                            numbers[i]=numbers[1];
+                        }
+                    }
+                return numbers;
+                
+            }
+
+            function printArray(numbers){
+                document.write("Array = { ");
+                for (var i = 0 ; i < numbers.length-1; i++){
+
+                    document.write(numbers[i]+", ");
+                }
+                document.write(numbers[numbers.length-1]+" } ");
+            }
+
+            function sumArray(numbers){
+                var sum = 0;
+                for ( var i=0; i< numbers.length ; i++){
+                    sum += parseInt(numbers[i]);
+                }
+                document.write("<br>La suma dels elements de l'array és: "+sum);
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var numbers = createArray();
+            printArray(numbers);
+            sumArray(numbers);
+
+        </script>
+    </body>
+</html>
+
+<!--b) Enter a number N in order to create a N-sized vector, then enter 2 numbers and place them in the first two
+    positions in the vector. Finally fill every K position in the vector with the values of positions K-1 and K-2.
+    Finally print the content of the vector and its total sum. -->

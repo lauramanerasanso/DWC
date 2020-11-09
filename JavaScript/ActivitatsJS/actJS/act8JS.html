@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 8 Logical Operators in Conditional Structures.</title>
+<script>
+    var day, month, year;
+    var num1, num2, num3;
+    var x, y;
+    var salary, years;
+    var number1, number2, number3;
+
+    day=prompt("Introdueix la data d'avui, primer dia: ", "");
+    month=prompt("Ara el mes: ", "");
+    year=prompt("Ara l'any: ", "");
+    num1=parseInt(num1);
+    num2=parseInt(num2);
+    num3=parseInt(num3);
+
+
+    var today = new Date();
+    currentyear = today.getFullYear();
+    if(day==25){
+        if(month==12){
+            if(year==currentyear){
+                document.write("Today is Christmas!");
+                document.write('<br>'); 
+            }
+        }
+    }
+
+    num1=prompt("Introdueix tres nombre diferents. Nombre 1: ", "");
+    num2=prompt("Nombre 2:", "");
+    num3=prompt("Nombre 3: ", "");
+    num1=parseInt(num1);
+    num2=parseInt(num2);
+    num3=parseInt(num3);
+
+    if(num1<10){
+        if(num2<10){
+            if(num3<10){
+                document.write("All the numbers are less than 10");
+                document.write('<br>'); 
+            }
+        }
+    }
+
+    x=prompt("Introdueix les coordenades d'un punt. X: ", "");
+    y=prompt("Y:", "");
+    x=parseInt(x);
+    y=parseInt(y);
+
+    if(x<0){
+        if(y<0){
+            document.write("Third quadrant");
+            document.write('<br>'); 
+        }else{
+            document.write("Second quadrant");
+            document.write('<br>'); 
+        }
+    }else{
+        if(y<0){
+            document.write("Forth quadrant");
+            document.write('<br>'); 
+        }else{
+            document.write("First quadrant");
+            document.write('<br>'); 
+        }
+    }
+
+    salary=prompt("Introdueix el teu salari: ", "");
+    years=prompt("I els anys que fa que treballes a l'empresa:", "");
+    salary=parseInt(salary);
+    years=parseInt(years);
+
+    if(salary<500){
+        if(years>=10){
+            document.write("Your salary the next year will be: " + salary*1.2);
+            document.write('<br>'); 
+        }else{
+            document.write("Your salary the next year will be: " + salary*1.05);
+            document.write('<br>'); 
+        }
+    }else{
+        document.write("Your salary the next year will be: " + salary);
+        document.write('<br>'); 
+    }
+
+    number1=prompt("Introdueix tres nombre diferents. Nombre 1: ", "");
+    number2=prompt("Nombre 2:", "");
+    number3=prompt("Nombre 3: ", "");
+    number1=parseInt(number1);
+    number2=parseInt(number2);
+    number3=parseInt(number3);
+
+    if(number1<10){
+        document.write("Some numbers are less than 10");
+        document.write('<br>'); 
+    }else if(number2<10){
+        document.write("Some numbers are less than 10");
+        document.write('<br>'); 
+    }else if(number3<10){
+        document.write("Some numbers are less than 10");
+        document.write('<br>'); 
+    }
+
+</script>
+</head>
+<body>
+<script>
+
+</script>
+</body>
+</html>
+
+<!-- 
+    Write a script that allow us to ...
+
+a) Enter a date, and print a message "Today is Christmas" if the date is
+this year's Christmas. (Date must be entered in parts: day, month and year).
+
+b) Enter three different numbers and if all of them are less than 10 print
+the message "All the numbers are less than 10".
+
+c) Enter two numbers representing a coordinate point (x, y) and then print
+a message informing about where the point is placed:
+"First Quadrant" if x > 0 and y > 0.
+"Second Quadrant" if x < 0 and y > 0. 
+"Third Quadrant" if x < 0 and y < 0.
+"Fourth Quadrant" if x > 0 and y < 0. 
+
+d) Enter two numbers representing the worker's salary and years in the
+company, calculate and print the salary of the next year according to
+the following conditions:
+If the salary is less than 500€ and the years are more or equal to 10
+then the salary increment is 20%.
+If the salary is less than 500€ but the years are less than 10 then
+the salary increment is 5%.
+If the salary is bigger or equal to 500€ then there is no salary increment.
+
+e) Enter three different numbers and if at least one of them is less than
+10 print the message "Some numbers are less than 10".
+-->

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 27 onMouseOver & onMouseOut Events</title>
+        <script>
+            function highlight(tr,col){
+                tr.bgColor=col;
+            }
+            function noHighlight(tr){
+                tr.bgColor='#FFFFFF';
+            }
+        </script>
+        <style>
+            table{
+                border-collapse: collapse;
+                padding: "5px";
+            }
+            th, td{
+                border: solid ;
+
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <caption>CLASSIFICACIÓ MOTO GP 2019</caption>
+            <thead>
+              <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                <th>POSICIÓ</th>
+                <th>PILOT</th>
+                <th>PUNTS</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                    <td>1</td>
+                    <td>Marc Màrquez</td>
+                    <td>420</td>
+                </tr>
+                <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                    <td>2</td>
+                    <td>Andrea Dovizioso</td>
+                    <td>269</td>
+                </tr>
+                <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                    <td>3</td>
+                    <td>Maverick Viñales</td>
+                    <td>211</td>
+                </tr>
+                <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                    <td>4</td>
+                    <td>Alex Rins</td>
+                    <td>205</td>
+                </tr>
+                <tr class="tr" onmouseover="highlight(this,'#baffe1')" onmouseout="noHighlight(this)">
+                    <td>5</td>
+                    <td>Fabio Quartararo</td>
+                    <td>192</td>
+                </tr>
+            </tbody>
+          </table>
+        <script>
+
+        </script>
+    </body>
+</html>
+<!--
+    a) Highlight the row of a table when the mouse cursor is over.
+-->

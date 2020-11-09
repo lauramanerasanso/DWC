@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title> Act 15  DATE Class</title>
+        <script>
+            function getTrimestre() {
+
+                var mes = (new Date()).getMonth();
+                switch(mes){
+                    case 0:
+                    case 1:
+                    case 2:
+                        document.write("1r Trimestre de l'any");
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                        document.write("2n Trimestre de l'any");
+                        break;
+                    case 6:
+                    case 7:
+                    case 8:
+                        document.write("3r Trimestre de l'any");
+                        break;
+                    case 9:
+                    case 10:
+                    case 11:
+                        document.write("4t Trimestre de l'any");
+                        break;
+                }
+                
+
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            getTrimestre();
+        </script>
+    </body>
+</html>
+
+<!-- a) Show the recent term (1st, 2nd, 3rd or 4th). -->

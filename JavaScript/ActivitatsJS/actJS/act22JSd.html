@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 22 SELECT Element. D</title>
+        <script>
+            function setMark() {
+                var p1=document.getElementById("pregunta1");
+                var p2=document.getElementById("pregunta2");
+                var p3=document.getElementById("pregunta3");
+                var p4=document.getElementById("pregunta4");
+                var mark = 0;
+                if (p1.options[p1.selectedIndex].value == "v"){
+                    mark += 2.5;
+                }
+                if (p2.options[p2.selectedIndex].value == "v"){
+                    mark += 2.5;
+                }
+                if (p3.options[p3.selectedIndex].value == "v"){
+                    mark += 2.5;
+                }
+                if (p4.options[p4.selectedIndex].value == "v"){
+                    mark += 2.5;
+                }
+                var txt ="";
+                if (mark>5){
+                    txt = ". Enhorabona!"
+                }
+                alert("La nota del l'examen és: " + mark + txt);
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Examen</h1>
+        <form>
+            Pregunta 1.
+            <br>
+            Com es representa un nombre parell?
+            <select id="pregunta1">
+                <option value="">Tria una...</option>
+                <option value="f">n</option>
+                <option value="v">2n</option>
+                <option value="f">2n-1</option>
+                <option value="f">2n+1</option>
+            </select>
+            <br>
+            <br>
+            Pregunta 2.
+            <br>
+            Si estàs corrent una carrera i adalantes es 2n, quin vas?
+            <select id="pregunta2">
+                <option value="">Tria una...</option>
+                <option value="f">1r</option>
+                <option value="f">3r</option>
+                <option value="v">2n</option>
+            </select>
+            <br>
+            <br>
+            Pregunta 3.
+            <br>
+            La temperatura en la qual la materia passa d'estat líquid a estat gaseos s'anomena:
+            <select id="pregunta3">
+                <option value="">Tria una...</option>
+                <option value="v">Punt d'ebullició</option>
+                <option value="f">Equació de l'estat</option>
+                <option value="f">Punt de fusió</option>
+                <option value="f">Transició de fase</option>
+            </select>
+            <br>
+            <br>
+            Pregunta 4.
+            <br>
+            Quant de temps dura la gestació dels elefants?
+            <select id="pregunta4">
+                <option value="">Tria una...</option>
+                <option value="f">18 mesos</option>
+                <option value="f">2 anys</option>
+                <option value="f">9 mesos</option>
+                <option value="v">22 mesos</option>
+            </select>
+            <br>
+            <input type="button" onclick="setMark()" id="b1" value="Calcula la nota">
+            
+           </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    d) Generate an exam with 4 questions. Every question has 4 possible options and only one of them is right.
+    Use a SELECT element for each question. There must be a button to calculate the final mark of the exam and
+    show an alert message with the final mark.
+-->

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 20  FORM, BUTTON & TEXT Elements. C</title>
+        <script>
+            function maxNum(){
+                var name = document.getElementById("name").value;
+                var surname = document.getElementById("surname").value;
+                alert("Nom complet: " + name + " " + surname );
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="name"/>
+            <input type="text" id="surname"/>
+            <button id="b1" onclick="maxNum()">NOM COMPLET</button>
+        </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    c) Enter a name and a surname in 2 text fields, and when we press a button an alert message shows a text
+    with concatenated name and surname.
+
+-->

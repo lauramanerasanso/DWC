@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+<title>JavaScript Template</title>
+<script>
+
+</script>
+</head>
+<body>
+<script>
+    var marques = ["Ford", "Audi", "BMW", "Seat"];
+
+    document.write("<h1>BUCLE FOR:</h1>");
+    document.write("<ul>");
+    for(var i=0 ; i<marques.length ; i++ ){
+        document.write("<li>"+marques[i]+"</li>");
+    }
+    document.write("</ul>");
+    
+    document.write("<h1>BUCLE WHILE:</h1>");
+    document.write("<ul>");
+    var y=0;
+    while(y<marques.length){
+        document.write("<li>"+marques[y]+"</li>");
+        y++;
+
+    }
+    document.write("</ul>");
+
+    document.write("<h1>BUCLE DO WHILE:</h1>");
+    document.write("<ul>");
+    var a=0;
+    do{
+        document.write("<li>"+marques[a]+"</li>");
+        a++;
+    }
+
+    while(a<marques.length);
+    document.write("</ul>");
+
+</script>
+</body>
+</html>

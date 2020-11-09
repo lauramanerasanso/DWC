@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Show and Hide</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            #menu{
+                display: none;
+                background-color: darksalmon;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="menu">
+            <p id="p1" class="a">Paragraph 1</p>
+            <p id="p2" class="a">Paragraph 2</p>
+            <p id="p3" class="b">Paragraph 3</p>
+            <p id="p4" class="b">Paragraph 4</p>
+            <p id="p5" class="b" >Paragraph 5</p>
+        </div>
+        <button id="b1">SLOW</button>
+        <button id="b2">FAST</button>
+        <button id="b3">10 SEC</button>
+        <button id="b4">Fade In</button>
+        <button id="b5">SLIDE DOWN</button>
+        <button id="b6">SLIDE UP</button>
+        <button id="b7">SLIDE TOGGLE</button>
+        <script>
+            
+
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("p.a").hide("slow", function(){
+                        console.log("slow")
+                    });
+                });
+
+                $("#b2").click(function(){
+                    $("p.a").hide("fast", imprimeix());
+                });
+
+                $("#b3").click(function(){
+                    $("p.a").hide("10000", function(){
+                        console.log("10 sec")
+                    });
+                });
+
+                $("#b4").click(function(){
+                    $("#p5").fadeIn();
+                });
+
+                $("#b5").click(function(){
+                    $("#menu").slideDown("slow");
+                });
+
+                $("#b6").click(function(){
+                    $("#menu").slideUp("fast");
+                });
+
+                $("#b7").click(function(){
+                    $("#menu").slideToggle("100000");
+                });
+
+                function imprimeix(){
+                    console.log("fast")
+                }
+
+            });
+        </script>
+    </body>
+</html>

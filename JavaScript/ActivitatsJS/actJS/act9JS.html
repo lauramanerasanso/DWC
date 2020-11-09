@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 9 SWITCH Conditional Structure</title>
+<script>
+
+</script>
+</head>
+<body>
+<script>
+    /* a) Enter one of the following words (house, table, dog, cat) and then print the translation into Spanish or Catalan. */
+    var word;
+    word = prompt("Introdueix una de les seguent paraules i te la traduire al catala: house, table, dog, cat ", "");
+        switch (word) {
+            case "horse": document.write( word + " en catala es: cavall");
+                break;
+            case "table": document.write( word + " en catala es: taula");
+                break;
+            case "dog": document.write( word + " en catala es: ca");
+                break;
+            case "cat": document.write( word + " en catala es: moix");
+                break;
+        }
+        document.write('<br>'); 
+
+    /* b) Enter a number and then print the corresponding month (1: January, 2: February, .... 12: December).*/
+    var mes;
+    mes = prompt("Introdueix un nombre de l'1 al 12: ", "");
+        switch (mes) {
+            case "1": document.write(mes + ": Gener");
+                break;
+            case "2": document.write(mes + ": Febrer");
+                break;
+            case "3": document.write(mes + ": Març");
+                break;
+            case "4": document.write(mes + ": Abril");
+                break;
+            case "5": document.write(mes + ": Maig");
+                break;
+            case "6": document.write(mes + ": Juny");
+                break;
+            case "7": document.write(mes + ": Juliol");
+                break;
+            case "8": document.write(mes + ": Agost");
+                break;
+            case "9": document.write(mes + ": Setembre");
+                break;
+            case "10": document.write(mes + ": Octubre");
+                break;
+            case "11": document.write(mes + ": Novembre");
+                break;
+            case "12": document.write(mes + ": Desembre");
+                break;
+        }
+        document.write('<br>'); 
+
+    /* c) Enter a number and then print the number of days of the corresponding month (January: 31, February: 28, .... December: 31).*/
+    var mes;
+    mes = prompt("Introdueix un nombre entre l'1 i el 12", "");
+        switch (mes) {
+            case "1": document.write("Gener: 31 dies");
+                break;
+            case "2": document.write("Febrer: 28 dies");
+                break;
+            case "3": document.write("Mars: 31 dies");
+                break;
+            case "5": document.write("Maig: 31 dies");
+                break;
+            case "7": document.write("Juliol: 31 dies");
+                break;
+            case "8": document.write("Agost: 31 dies");
+                break;
+            case "10": document.write("Octubre: 31 dies");
+                break;
+            case "12": document.write("Desembre: 31 dies");
+                break;
+            case "4": document.write("Abril: 30 dies");
+                break;
+            case "6": document.write("Juny: 30 dies");
+                break;
+            case "9": document.write("Setembre: 30 dies");
+                break;
+            case "11": document.write("Novembre: 30 dies");
+                break;
+        }
+        document.write('<br>'); 
+
+        /* d) Enter a letter and then print "Vowel" or "Consonant" depending on the entered letter.*/
+        var lletra;
+        lletra = prompt("Introdueix una lletra:", "");
+        switch (lletra) {
+            case "b":
+            case "c":
+            case "d":
+            case "f":
+            case "g":
+            case "h":
+            case "j":
+            case "k":
+            case "l":
+            case "m":
+            case "n":
+            case "p":
+            case "q":
+            case "r":
+            case "s":
+            case "t":
+            case "v":
+            case "w":
+            case "x":
+            case "y":
+            case "z":
+            case "ç":
+                document.write("Consonant");
+                break;
+            case "a":
+            case "e":
+            case "i":
+            case "o":
+            case "u":
+                document.write("Vocal");
+                break;
+        }
+        document.write('<br>'); 
+
+</script>
+</body>
+</html>
+
+<!-- Write a script that allow us to ...
+
+a) Enter one of the following words (house, table, dog, cat) and then print the translation into Spanish or Catalan.
+b) Enter a number and then print the corresponding month (1: January, 2: February, .... 12: December).
+c) Enter a number and then print the number of days of the corresponding month (January: 31, February: 28, .... December: 31).
+d) Enter a letter and then print "Vowel" or "Consonant" depending on the entered letter.-->

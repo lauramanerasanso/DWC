@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 07 - Using attr() and removeAttr() Methods</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <a id="a1" href="">Link</a>
+
+        <button id="b1">INSTA</button>
+        <button id="b2">GOOGLE</button>
+        <button id="b3">AMAZON</button>
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("#a1").attr("href", "https://www.instagram.com");
+                });
+
+                $("#b2").click(function(){
+                    $("#a1").attr("href", "https://www.google.cat");
+                });
+
+                $("#b3").click(function(){
+                    $("#a1").attr("href", "https://www.amazon.es");
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with a link (<a>) with href
+        property empty, and three buttons. Write a
+        script using jQuery to set a different value
+        for href property depending on the button we
+        click on.
+-->

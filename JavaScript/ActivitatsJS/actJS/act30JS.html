@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Act 30 WINDOW Object Properties: location, history, screen</title>
+</head>
+<body>
+<p>A</p>
+<script>
+    function pagina(){
+        var n = parseInt((getRandom()));
+        switch (n) {
+            case 0: open("https://www.google.com/");
+            break;
+
+            case 1: open("https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8v9_g_crsAhVhQEEAHXtYAL0QFjAAegQICBAD&url=https%3A%2F%2Fes.yahoo.com%2F&usg=AOvVaw3zGX6eYVx5tCOPWhyhmDzS");
+            break;
+
+            case 2: open("https://www.bing.com/?setlang=es");
+            break;
+        }
+    }
+
+    function getRandom(){
+        return Math.floor(Math.random()* (2+1));
+    }
+
+</script>
+
+
+
+
+<form>
+    <input type="button" value="What page?" onclick="pagina()">
+</form>
+
+
+<br>
+<p>B</p>
+<script>
+
+    var w;
+
+    function popUp(){
+         w = window.open("","","width=100, height=100");
+         resize();
+    }
+
+    function resize(){
+        w.resizeTo(w.screen.availWidth,
+            w.screen.availWidth/3);
+    }
+
+</script>
+
+
+<form>
+    <input type="button" value="Pop Up" onclick="popUp()">
+</form>
+
+
+
+<br>
+<p>C</p>
+<script>
+    function isEnabled(){
+        if (navigator.cookieEnabled){
+            alert("Cookies enabled");
+        }else{
+            alert("Cookies not enabled");
+        }
+    }
+</script>
+
+<form>
+    <input type="button" value="Cookies" onclick="isEnabled()">
+</form>
+</body>
+</html>

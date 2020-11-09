@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 18 STRING Class. A</title>
+        <script>
+            function printArray(array){
+                document.write("Noms = { ");
+                for (var i = 0 ; i < array.length-2; i++){
+
+                    document.write(array[i]+", ");
+                }
+                document.write(array[array.length-2]+" } ");
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var names = new Array();
+            var count = 0;
+            do{
+                
+                var name = prompt("Introdueix un nom: (si vols aturar, escriu 'end')","");
+                names[count]=name;
+                count++;
+            }while(name != "end");
+
+            printArray(names);
+        </script>
+    </body>
+</html>
+
+<!-- a) Enter a series of names until you type "end". Then it must print how many names were typed. -->

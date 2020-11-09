@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Taula Dinàmica - LMS</title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="taula"></div>
+        <br>
+        <div id="t2"></div>
+        <script>
+            var equips = ["Honda", "Yamaha", "Suzuki", "KTM", "Aprilia"];
+
+            var txt = "<h1> TAULA amb FOR </h1>";
+                txt += "<table border='1' style='border-collapse: collapse; '>";
+                txt += "<tr>";
+                for (var i = 0 ; i < equips.length ; i++){
+                    txt += "<th>" + i + "</th>";
+
+                }
+                txt += "</tr><tr>";
+                for (var i = 0 ; i < equips.length ; i++){
+                    txt += "<td>" + equips[i] + "</td>";
+
+                }
+
+                txt += "</tr>";
+                txt += "</table>";
+
+            document.getElementById("taula").innerHTML = txt;
+
+            var t = "<h1> TAULA amb FOREACH </h1>";
+                t += "<table border='1' style='border-collapse: collapse; '>";
+                t += "<tr>";
+
+                t += equips.forEach(escriureTHs);
+
+                t += "</tr><tr>";
+
+                
+
+                t += "</tr>";
+                t += "</table>";
+
+            document.getElementById("t2").innerHTML = t;
+
+            function escriureTHs(item, index, array){
+                return "<th>"+index+"</th>";
+            }
+        </script>
+    </body>
+</html>

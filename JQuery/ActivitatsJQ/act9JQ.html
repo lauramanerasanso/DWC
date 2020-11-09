@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 09 - Using html() Method</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="content"></div>
+        <button id="b1">HEAD</button>
+        <button id="b2">BODY</button>
+        <script>
+            
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    alert($("head").html());
+                });
+
+                $("#b2").click(function(){
+                    alert($("body").html());
+                });
+            });
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Create a web page with two buttons. When you press on the first one, an alert
+    box must appear showing all the content in the <head> section. And when you press
+    on the second button, an alert box must appear showing all the content in the
+    <body> section.
+
+-->

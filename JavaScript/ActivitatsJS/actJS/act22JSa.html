@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 22 SELECT Element. A</title>
+        <script>
+            function showPrice() {
+                var sel=document.getElementById("select1");
+                document.getElementById("pr1").value=sel.options[sel.selectedIndex].value;
+
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Tria una pizza:
+            <select id="select1" onChange="showPrice()">
+            <option value="">Tria una</option>
+            <option value="6€">Pepperoni</option>
+            <option value="5€">Quatro Formaggi</option>
+            <option value="4€">Procciuto</option>
+            <option value="6€">Pollo Funghi</option>
+            </select>
+            <br>
+            Preu: <input type="text" id="pr1"><br>
+           </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Select from different kind of pizzas (Pepperoni 6€, Quatro Formaggi 5€, Procciuto 4€,...)
+    using a SELECT element and when one option is selected write its price inside a TEXT element.
+-->

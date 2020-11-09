@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Act4 Sequential Structure</title>
+</head>
+<body>
+<script>
+    var costatQuadrat;
+    var num1, num2, num3, num4;
+    var preu1, preu2, quant1, quant2;
+    var base, heigth;
+    costatQuadrat=prompt('Escriu la longitud del costat del quadrat:','');
+    num1=prompt('Et demanare 4 nombres i et tornare la seva suma i el seu producte. Primer nombre:','');
+    num2=prompt('Segon nombre: ', '');
+    num3=prompt('Tercer nombre: ', '');
+    num4=prompt('Quart nombre: ', '');
+    preu1=prompt('Necessit el preu i la quantitat dels dos productes. Preu del primer producte: ', '');
+    quant1=prompt('Quantitat del primer producte: ', '');
+    preu2=prompt('Preu del segon producte: ', '');
+    quant2=prompt('Quantitat del segon producte: ', '');
+    base=prompt("Per calcular l'area del triangle necessit la base: ", '');
+    heigth=prompt('I la seva altura: ', '');
+    var perimetre=parseInt(costatQuadrat)*4;
+    document.write("El perimetre d'un quadrat de "+ costatQuadrat +" costat ");
+    document.write(' es: ');
+    document.write(perimetre);
+    document.write('<br>');
+    var sum=parseInt(num1)+parseInt(num2)+parseInt(num3)+parseInt(num4);
+    var multiplicacio=parseInt(num1)*parseInt(num2)*parseInt(num3)*parseInt(num4);
+    document.write('La suma '+ num1 +' + '+ num2 +' + '+ num3 +' + '+ num4 +' = '+ sum);
+    document.write('<br>');
+    document.write('El producte ' + num1 + ' * '+ num2 +' * '+ num3 +' * '+ num4 +' = '+ multiplicacio);
+    document.write('<br>');
+    var bill=(parseInt(preu1)*parseInt(quant1))+(parseInt(preu2)+parseInt(quant2));
+    document.write('La factura dels productes es: ');
+    document.write('<br>');
+    document.write('Producte 1: '+ preu1 + 'euros x '+ quant1);
+    document.write('<br>');
+    document.write('Producte 2: '+ preu2 + 'euros x '+ quant2);
+    document.write('<br>');
+    document.write('TOTAL: '+ bill);
+    var areat=(parseInt(base)*parseInt(heigth))/2;
+</script>
+</body>
+</html>
+
+<!-- Write a script that allow us to ...
+
+a) Enter the side length of a square, and print its perimeter.
+b) Enter four numbers, and print the addition and the product of them.
+c) Enter the price and quantity of two products, and print the bill.
+d) Enter the base and the height of a triangle, and print its area. -->

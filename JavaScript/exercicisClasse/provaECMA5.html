@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Prova ECMA 5</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <script>
+        //for each
+        document.write("<br> forEach() <br>");
+
+        var equips = ["Honda", "Yamaha", "Suzuki", "Ducati", "KTM", "Aprilia"];
+        equips.forEach(showInfo);
+
+        function showInfo(item, index){
+            document.write(index + " : " + item + " <br>");
+        }
+
+        //map
+        document.write("<br> map() <br>");
+
+        var equips2 = equips.map(addPosition);
+        console.log(equips2);
+
+        function addPosition(item, index, array) {
+            return index + "/" + array.length + " : " + item;
+        }
+
+        //filter
+        document.write("<br> filter() <br>");
+        
+        var equips3 = equips.filter(mesLlarg3);
+        console.log(equips3);
+
+        function mesLlarg3(item, index, array){
+            return item.length > 3;
+        }
+
+        //reduce
+        document.write("<br> reduce() <br>");
+
+        var stringEquips = equips.reduce(ajuntaEquips);
+        console.log(stringEquips)
+
+        function ajuntaEquips(total, item, index, array) {
+            return total +", "+ item;
+        }
+
+        //every
+        document.write("<br> every() <br>");
+
+        var comencenH = equips.every(comencenPerH);
+        console.log("Comencen per H: " + comencenH);
+        
+        function comencenPerH(value, index, array) {
+            return value.indexOf("H")==1;
+        }
+
+    </script>
+</body>
+</html>

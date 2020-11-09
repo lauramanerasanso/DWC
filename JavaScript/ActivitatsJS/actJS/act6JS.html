@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 6 IF/ELSE Complex Conditional Structure</title>
+<script>
+
+</script>
+</head>
+<body>
+<script>
+    var num1, num2;
+    var mark1, mark2, mark3;
+    var intnum;
+    var age;
+
+    num1=prompt("Introdueix un num: ", "");
+    num2=prompt("Introdueix un altre num:", "");
+
+    mark1=prompt("Nota 1: ", "");
+    mark2=prompt("Nota 2: ", "");
+    mark3=prompt("Nota 3: ", "");
+
+    intnum=prompt("Introdueix un nombre: ", "");
+
+    age=prompt("Introdueix la teva edat: ", "");
+    
+    if (num1>num2){
+        document.write(num1 + "+" + num2 + " = ");
+        document.write(parseInt(num1)+parseInt(num2));
+        document.write('<br>'); 
+    }else{
+        document.write(num2 + "-" + num1 + " = ");
+        document.write(parseInt(num2)-parseInt(num1));
+        document.write('<br>'); 
+    }
+    
+    var mitja=(parseInt(mark1)+parseInt(mark2)+parseInt(mark3))/3;
+    if (mitja>=5)
+    {
+        document.write("You pass!")
+        document.write('<br>'); 
+    }else{
+        document.write("You fail!")
+        document.write('<br>'); 
+    }
+
+    if ((intnum%2)==0){
+        document.write("Pair number"); 
+        document.write('<br>'); 
+    }else{
+        document.write("Odd number"); 
+        document.write('<br>'); 
+    }
+    
+    if (age>=18 && age<65){
+        document.write("Working age."); 
+        document.write('<br>'); 
+    }else{
+        document.write("Not working age."); 
+        document.write('<br>');
+    }
+</script>
+</body>
+</html>
+
+<!-- Write a script that allow us to ...
+
+a) Enter two numbers N1 and N2, if the first one is bigger than the second
+one then it prints the addition N1+N2, otherwise it prints the difference
+N2-N1.
+b) Enter three marks of a student, if the average is higher or equal to
+5 then a message "You pass!" must appear, otherwise a message "You fail!"
+must be shown.
+c) Enter an integer number, and if the number is pair then the message
+"Pair Number" must appear, otherwise the message "Odd Number" must appear.
+d) Enter the age of a person, and if the age is between 18 and 65 then
+the message "Working Age" must appear, otherwise the message "Not Working
+Age" must appear.
+
+-->

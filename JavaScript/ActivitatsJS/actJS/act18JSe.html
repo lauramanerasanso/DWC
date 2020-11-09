@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 18 STRING Class. E</title>
+        <script>
+            function printFirstHalf(paraula){
+                for(var i = 0 ; i < (paraula.length)/2 ; i++){
+                    document.write(paraula.charAt(i));
+                }
+                document.write("<br>");
+            }
+
+            function printLastChar(paraula){
+                document.write(paraula.charAt(paraula.length-1));
+                document.write("<br>");
+            }
+
+            function printInvertit(paraula){
+                var x = paraula.length;
+                var invert = "";
+
+                while (x>=0) {
+                    invert = invert + paraula.charAt(x);
+                    x--;
+                }
+                document.write(invert);
+                document.write("<br>");
+            }
+
+            function printSeparated(paraula){
+                for(var i = 0 ; i < paraula.length ; i++){
+                    document.write(paraula.charAt(i) + " ");
+                }
+                document.write("<br>");
+            }
+
+            function countVowels(paraula){
+                var count=0;
+                for(var i = 0 ; i < paraula.length ; i++){
+                    switch(paraula.charAt(i)){
+                        case 'a':
+                        case 'e':
+                        case 'i':
+                        case 'o':
+                        case 'u':
+                            count++;
+                            break;
+                    }
+                }
+
+                document.write("La paraula " + paraula + " té " + count + " vocals.")
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var paraula=prompt("Introdueix una paraula: ","");
+            printFirstHalf(paraula);
+            printLastChar(paraula);
+            printInvertit(paraula);
+            printSeparated(paraula);
+            countVowels(paraula);
+
+        </script>
+    </body>
+</html>
+
+<!--
+    e) Enter a word, and then:
+        Print its first half part.
+        Print the last char.
+        Print it in reverse order.
+        Print every char separated by a white space.
+        Print how many vowels are in the word.
+-->

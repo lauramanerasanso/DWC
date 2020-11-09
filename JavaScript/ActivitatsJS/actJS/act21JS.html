@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 21 PASSWORD Element</title>
+        <script>
+            function check(){
+                var pass1=document.getElementById("pass1").value;
+                var pass2=document.getElementById("pass2").value;
+                if (pass1==pass2){
+                    alert("Les contrasenyes coincideixen!");
+                }
+                else {
+                    alert('Les contrasenyes no coincideixen.');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Introdueix la contrasenya: <input type="password" id="pass1"><br/>
+            Torna introduïr la contrasenya: <input type="password" id="pass2"><br/>
+            <button id="b1" onclick="check()">Comprova</button>
+            </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Enter a password into 2 PASSWORD fields, and then when you press a check button an alert message must appear.
+    This message should inform us if the passwords are equal or not.
+-->

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 20  FORM, BUTTON & TEXT Elements. B</title>
+        <script>
+            function maxNum(){
+                var num1 = document.getElementById("number1").value;
+                var num2 = document.getElementById("number2").value;
+                alert("El màxim entre " + num1 + " i " + num2 + " és: " + Math.max(num1, num2));
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="text" id="number1"/>
+            <input type="text" id="number2"/>
+            <button id="b1" onclick="maxNum()">MÀXIM</button>
+        </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    b) Enter two numbers in 2 text fields and when we press a button an alert message shows the biggest one.
+-->

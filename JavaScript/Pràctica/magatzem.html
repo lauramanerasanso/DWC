@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+	<title>Magatzem - LMS</title>
+	<meta charset="UTF-8">
+	<script src="Paquet.js"></script>
+	<script src="Estant.js"></script>
+    <script src="Magatzem.js"></script>
+    <script>
+
+		function afegir(){
+
+			document.getElementById("info").innerHTML="";
+
+			var pos = document.getElementById("posicio").value;
+			var codi = document.getElementById("codi").value;
+			var desti = document.getElementById("destinatari").value;
+			var pes = document.getElementById("pes").value;
+
+			var p = new Paquet(codi, desti, pes);
+			m.afegirPaquet(p, pos);
+
+		}
+
+		function eliminar(){
+			document.getElementById("info").innerHTML="";
+			var pos = document.getElementById("posicio").value;
+			var p = m.recollirPaquet(pos);
+			console.log(p);
+        }
+        
+        function countLliuresOcupats(){
+			
+			var lliures = m.estantsLliures();
+			var ocupats = m.numEstants - lliures;
+
+			document.getElementById("info").innerHTML="<p>El magatzem té :<br>" + lliures +" estants lliures <br>" + ocupats + " estants ocupats</p>";
+			
+        }
+        
+		function calPreu(){
+			document.getElementById("info").innerHTML="";
+			m.calculaPreus();
+		}
+
+		function ordenarPes(){
+			document.getElementById("info").innerHTML="";
+			m.ordenaPes();
+			m.showTaula();
+		}
+
+		function mesVell(){
+			document.getElementById("info").innerHTML="";
+			var p = m.paquetMesVell();
+			if(p!=null){
+				document.getElementById("info").innerHTML+= p.getInfo();
+			}
+		}
+
+    </script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+	<h2 style="text-align: center;">MAGATZEM </h2>
+	<h6 class="text-muted"  style="text-align: center;">Laura Manera Sansó</h6>
+	
+	<div class="container">
+	<div id="taula" class="table-responsive"></div>
+	<div>
+		<div class="form-group row">
+    		<label for="posicio" class="col-sm-2 col-form-label">Posició: </label>
+    		<div class="col-sm-6">
+				<input type="text" id="posicio"  class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+    		<label for="codi" class="col-sm-2 col-form-label">Codi Paquet: </label>
+    		<div class="col-sm-6">
+                <input type="text" id="codi"  class="form-control" />
+    		</div>
+    	</div>
+    	<div class="form-group row">
+    		<label for="destinatari" class="col-sm-2 col-form-label">Destinatari: </label>
+    		<div class="col-sm-6">
+				<input type="text" id="destinatari"  class="form-control" />
+			</div>
+		</div>
+		<div class="form-group row">
+    		<label for="pes" class="col-sm-2 col-form-label">Pes (Kg): </label>
+    		<div class="col-sm-6">
+				<input type="text" id="pes"  class="form-control" />
+			</div>
+		</div>
+        <button class="btn btn-success" id="b1" onclick="afegir();">Afegir</button>
+        <button class="btn btn-danger" id="b2" onclick="eliminar();">Treure</button>
+        <br>
+        <br>
+        <button class="btn btn-dark" id="b3" onclick="countLliuresOcupats();">Quants estants lliures queden?</button>
+        <br>
+        <br>
+        <button class="btn btn-dark" id="b4" onclick="calPreu();">Calcular el preu dels paquets</button>
+        <br>
+        <br>
+        <button class="btn btn-dark" id="b5" onclick="ordenarPes();">Ordena els paquets per pes descendent</button>
+        <br>
+        <br>
+		<button class="btn btn-dark" id="b6" onclick="mesVell();">Quin és el paquet que duu més temps al magatzem?</button>
+	</div>
+	<br/>
+	<div id="info" class="alert alert-info"></div>
+	</div>
+    <script>
+        var m = new Magatzem(8);
+		m.inicialitza();
+		m.showTaula();
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body>
+</html> 

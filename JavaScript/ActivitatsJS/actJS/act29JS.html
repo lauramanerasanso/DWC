@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Act 29 WINDOW Object</title>
+</head>
+<body>
+<script>
+
+    function tancar(obj)
+    {
+        obj.close();
+    }
+
+    function obrir()
+    {
+        var w = window.open('', 'finestra', 'width=600, height=300');
+        w.document.write('<head></head>');
+        w.document.write('<body>');
+        w.document.write('<div id="container">');
+        w.document.write('<input type="button" value="Close new window" onclick="opener.tancar(window)" />');
+        w.document.write('</div>');
+        w.document.write('</body>');
+    }
+
+</script>
+
+
+<input type="button" value="New Window" onclick="obrir()">
+
+
+</body>
+</html>
+
+<!--
+    a) Press a button and then open a window with width = 600 pixels and height = 300 pixels. 
+    This new window must have a button to close itself.
+-->

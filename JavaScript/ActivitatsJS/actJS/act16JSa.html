@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 16 ARRAY Class. A</title>
+        <script>
+
+            function introduirNombres(numbers){
+
+
+                for( var i=0; i< numbers.length ; i++) {
+
+                    var num;
+
+                    num=prompt("Introdueix un nombre a la posició "+i+" de l'array:","");
+
+                    numbers[i]=parseInt(num);
+                }
+            }
+
+            function sumArray(numbers){
+                var sum = 0;
+                for ( var i=0; i< numbers.length ; i++){
+                    sum += parseInt(numbers[i]);
+                }
+                return sum;
+            }
+
+            function sumArrayMajors5(numbers){
+                var sum = 0;
+                for ( var i=0; i< numbers.length ; i++){
+                    if(numbers[i]>5){
+                        sum += parseInt(numbers[i]);
+                    }
+                }
+                return sum;
+            }
+            function countMajors5(numbers){
+                var count = 0;
+                for ( var i=0; i< numbers.length ; i++){
+                    if(numbers[i]>5){
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            function avgArray(numbers){
+                var sum = sumArray(numbers);
+                var avg = sum/numbers.length;
+                return avg;
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var numbers = new Array(8);
+
+            introduirNombres(numbers);
+
+            document.write("La suma dels elements de l'array és: "+ sumArray(numbers));
+            document.write("<br>");
+            document.write("La mitja dels elements de l'array és: "+ avgArray(numbers));
+            document.write("<br>");
+            document.write("La suma dels elements de l'array majors a 5 és: "+ sumArrayMajors5(numbers));
+            document.write("<br>");
+            document.write("Hi ha "+ countMajors5(numbers)+" nombres majors a 5 a l'array.");
+
+
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Create an 8 elements vector and introduce 8 numbers. Finally it must print:
+Total sum of the 8 numbers.
+Average of the 8 numbers.
+Total sum of the elements higher than 5.
+How many numbers are higher than 5. -->

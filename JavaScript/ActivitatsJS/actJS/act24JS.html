@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 24 RADIO Element</title>
+        <script>
+            function itsAllow(){
+                if (document.getElementById("older").checked){
+                    alert("Pots entrar a la pàgina.");
+                }else if (document.getElementById("younger").checked){
+                    alert("No pots entrar a la pàgina.");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="radio" id="older" >Major de 18 anys<br/>
+            <input type="radio" id="younger" >Menor de 18 anys<br/>
+            <button id="b1" onclick="itsAllow()">ENTRA</button>
+        </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Select from two RADIO elements: 1) Older than 18, or 2) Younger than 18. Finally when we press a button an
+    alert message must appear informing about if we can enter to the site or not.
+-->

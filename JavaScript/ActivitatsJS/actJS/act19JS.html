@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 19 Forms & Events</title>
+        <script>
+            function add() {
+                count++;
+                alert('El valor del contador és:' + count);
+            }
+
+            function diguesHola(){
+                alert("Hola!");
+            }
+
+            function diguesAdeu(){
+                alert("Adeu, vagi bé!");
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="button" id="b1" onClick="add()" value="1">
+            <input type="button" id="b2" onClick="diguesHola()" value="2">
+            <input type="button" id="b3" onClick="diguesAdeu()" value="3">
+        </form>
+        <script>
+            var count=0;
+            
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Press on three different buttons, every button labelled with numbers 1, 2 and 3 respectively.
+    When we press on a button a message alert must show the pressed number.
+-->

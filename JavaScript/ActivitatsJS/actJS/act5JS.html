@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act5 IF Simple Conditional Structure</title>
+</head>
+<body>
+<script>
+    var nom, mark1, mark2, mark3;
+    var email, email_repeat;
+    var age;
+    var number;
+    nom=prompt("Escriu el teu nom: ", "");
+    mark1=prompt("Introdueix 3 notes. Nota 1:", "");
+    mark2=prompt("Nota 2:", "");
+    mark3=prompt("Nota 3:", "");
+    email=prompt("Introdueix el teu email: ", "");
+    email_repeat=prompt("Torna introduir el teu email: ", "");
+    age=prompt("Introdueix la teva edat: ", "");
+    number=prompt("Introdueix un nombre", "");
+    var mitja=(parseInt(mark1)+parseInt(mark2)+parseInt(mark3))/3;
+    if (mitja>=5)
+    {
+        document.write("Congratulations " + nom +"! You pass the exam")
+        document.write('<br>'); 
+    }
+    if (email!=email_repeat){
+        document.write("Emails are different!");
+        document.write('<br>'); 
+    }
+    if (age>=18 && age<65){
+        document.write("You are in working age."); 
+        document.write('<br>'); 
+    }
+    if ((number%2)==0){
+        document.write("Pair number!"); 
+        document.write('<br>'); 
+    }
+</script>
+</body>
+</html>
+
+
+<!-- Write a script that allow us to ...
+
+a) Enter the name and three marks of a student, if the average
+is bigger than or equal to 5 then the message "Congratulations!
+You pass the exam" must appear.
+b) Enter an email twice, and print the message "Emails are different!"
+if they are not equal.
+c) Enter the age of a person, if the person is an adult (older than or
+equal to 18) and is not retired (less than 65) then the message "You are
+in working age." must appear.
+d) Enter an integer number, if the number is pair then the message "Pair
+number!" must appear -->

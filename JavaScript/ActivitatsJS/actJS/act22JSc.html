@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 22 SELECT Element. C</title>
+        <script>
+            function sumPrice() {
+                var sel=document.getElementById("select1");
+                var txt=document.getElementById("quantitat");
+                var preu = parseInt(sel.options[sel.selectedIndex].value)*parseInt(txt.value);
+                document.getElementById("pr1").value=preu+"€";
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Tria una pizza:
+            <select id="select1">
+            <option value="" selected disabled>Tria una...</option>
+            <option value="6">Pepperoni</option>
+            <option value="5">Quatro Formaggi</option>
+            <option value="4">Procciuto</option>
+            <option value="6">Pollo Funghi</option>
+            </select>
+            <br>
+            Quantes pizzes vols?
+            <input type="text" id="quantitat"><br>
+            <input type="button" onclick="sumPrice()" id="b1" value="Calcula el preu">
+            <hr>
+            Preu final: <input type="text" id="pr1"><br>
+           </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!--
+    c) Select from different kinf of pizzas (Pepperoni 6€, Quatro Formaggi 5€, Procciuto 4€,...) using a SELECT element and enter how many pizzas we want in a TEXT element. 
+When we press the button Calculate the final cost is shown in another TEXT element.
+-->

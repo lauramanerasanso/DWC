@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 16 - Using focus Event</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            input{
+                color:#0000ff
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <input type="text" name="" id="t1" value="Laura">
+            <input type="text" name="" id="t2" value="Manera">
+        </form>
+        <script>
+            $(document).ready(function(){
+                $("input").focus(function(){
+                    $(this).css({"color":"#ff0000"});
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with two text elements (input type="text") in a form.
+    Set their font colour to blue. When an input element get the focus, its
+    font colour must change to red.
+-->

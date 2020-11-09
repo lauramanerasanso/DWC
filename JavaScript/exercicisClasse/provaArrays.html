@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Prova funcions i mètodes d'Arrays</title>
+        <script>
+            function printArray(){
+                var txt="";
+                for ( var i = 0 ; i < myArray.length ; i++){
+                    txt+=myArray[i]+" ";
+                }
+                document.getElementById("content").innerHTML=txt;
+            }
+
+            function pushArray(){
+                myArray.push(document.getElementById("item").value);
+                printArray();
+            }
+
+            function popArray(){
+                myArray.pop();
+                printArray();
+            }
+
+            function shiftArray(){
+                myArray.shift();
+                printArray();
+            }
+
+            function unshiftArray(){
+                myArray.unshift(document.getElementById("item").value);
+                printArray();
+            }
+
+            function indexOfArray(){
+                var x = document.getElementById("item").value
+                var pos=myArray.indexOf(x);
+                if(pos != -1){
+                    alert(x + "està en la posició " + posicio);
+                }else{
+                    alert(x + "no està a l'array");
+                }
+
+            }
+
+            function sortArray(){
+                myArray.sort();
+                printArray();
+            }
+
+            Array.prototype.print = function(){
+                var txt="";
+                for ( var i = 0 ; i < this.length ; i++){
+                    txt+=this[i]+" ";
+                }
+                document.getElementById("content").innerHTML=txt;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <p>INPUT: 
+            <input type="text" id="item"/>
+            <button id="b1" onclick="pushArray()">PUSH</button>
+            <button id="b2" onclick="popArray()">POP</button>
+            <button id="b3" onclick="shiftArray()">SHIFT</button>
+            <button id="b4" onclick="unshiftArray()">UNSHIFT</button>
+            <button id="b5" onclick="indexOfArray()">INDEX OF</button>
+            <button id="b6" onclick="sortArray()">SORT</button>
+            </p>
+        </form>
+        <hr/>
+        <p id="content">
+
+        </p>
+        <script>
+            var myArray = new Array("Laura", "Francesc", "Macià");
+            //printArray();
+            myArray.print();
+        </script>
+    </body>
+</html>

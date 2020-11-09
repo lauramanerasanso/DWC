@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 18 STRING Class. B</title>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <script>
+            var string=prompt("Escriu una frase: ","");
+            var substring=prompt("Escriu la cadena que vols cercar a la frase: ","");
+
+            var pos=string.indexOf(substring);
+
+            if (pos!=-1){
+                document.write("La cadena " + substring + " es troba en la posició: " + pos);
+            }else{
+                document.write(substring + ' no es troba a la frase.');
+            }
+
+            
+        </script>
+    </body>
+</html>
+<!-- b) Search a string into a longer string. We can type a long text and a word to search in it.
+    Then it must print the position or a message if the word isn't in the text. -->

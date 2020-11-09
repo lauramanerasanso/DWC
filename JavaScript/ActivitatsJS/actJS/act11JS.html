@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 11 DO/WHILE Repetitive Structure</title>
+<script>
+
+</script>
+</head>
+<body>
+<script>
+    /* a) Enter positive and negative numbers until we enter the number 9999, sum all of them, print the value and print the message:
+    "ZERO" if the value of the sum is zero. 
+    "POSITIVE" if the value of the sum is positive.
+    "NEGATIVE" if the value of the sum is negative. */
+
+        var numStop = 9999;
+        var num; 
+        var sum = 0;
+
+        do {
+            
+            num = prompt("Introdueix un nombre per sumar: ", "");
+            num=parseFloat(num);
+            sum = sum + num;
+            sum=parseFloat(sum);
+        } while(num!=numStop);
+
+        if (sum > 0) {
+            document.write("POSITIU");
+        } else if (sum < 0) {
+            document.write("NEGATIU");
+        } else {
+            document.write("ZERO");
+        }
+        document.write("<br>");
+
+    /*b) Enter people information: id number, age and sex (male/female) until we enter the number 0 as ID number, and then print the following information:
+    How many people are there?
+    How many men are there? How many women are there?
+    How many men are between 18 and 65 years old?
+    What is the name of the oldest woman?
+    What is the ID number of the youngest man? */
+    
+    document.write("<br>");
+        var nom;
+        var idStop = 0;
+        var id;
+        var edat;
+        var sexe;
+        var countPersons = 0;
+        var countW = 0;
+        var countWorkerAge = 0;
+        var edatMajor;
+        var edatMenor;
+        var nomMajor;
+        var idMenor;
+
+        do {
+            nom = prompt("Introdueix el teu nom: ", "");
+            id = prompt("Introdueix el teu id: ", "");
+            edat = prompt("Introdueix la teva edat: ", "");
+            sexe = prompt("Introdueix el teu sexe: (m/f)", "");
+            if (sexe == "f") {
+                countW++;
+            }
+            if (edat >= 18 && edat <= 65) {
+                countWorkerAge++;
+            }
+            if (edat > edatMajor) {
+                edatMajor = edat;
+                nomMajor=nom;
+            }
+            if(edat<edatMenor){
+                edatMenor=edat;
+                idMenor=id;
+            }
+            countPersons++;
+        } while (id != idStop);
+
+        document.write("Hi ha " + countPersons + " persones");
+        document.write("<br>");
+        document.write("Hi ha " + countW + " dones");
+        document.write("<br>");
+        document.write("Hi ha " + (countPersons - countW) + " homes");
+        document.write("<br>");
+        document.write("Hi ha " + countWorkerAge + " persones majors de 18 i menors de 65 anys");
+        document.write("<br>");
+        document.write("El nom de la persona mes vella es " + nomMajor);
+        document.write("<br>");
+        document.write("L'id de la persona mes jove es " + idMenor);
+        document.write("<br>");
+
+    /* c) Enter bank accounts information: account number, client name and money. Calculate the sum of all the bank accounts. For each account information print the following message:
+    "{CLIENT NAME} is the owner of {ACCOUNT NUMBER} account with {MONEY} €." */
+    document.write("<br>");
+        var nom;
+        var numAccount;
+        var money;
+        var sum = 0;
+        var ifStop;
+
+        do {
+            nom = prompt("Introdueix el teu nom: ", "");
+            numAccount = prompt("Introdueix el nombre de compte bancari: ", "");
+            money = prompt("Introdueix els doblers que hi tens ingressats: ", "");
+            ifStop = prompt("Vols introduir mes comptes bancaris? (si/no)", "");
+            document.write( nom + " es el propietari del compte " + numAccount + " on te " + money + " euros ingressats." + "<br>");
+            sum = parseInt(sum) + parseInt(money);
+        } while (ifStop == "si");
+
+        document.write("La suma del total de tots els comptes bancaris es de " + sum + " euros");
+
+    document.write("<br>");
+
+</script>
+</body>
+</html>
+

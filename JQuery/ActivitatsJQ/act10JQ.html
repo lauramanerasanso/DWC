@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 10 - jQuery Events Management</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <p>
+            Hola, que tal?
+            <strong>Laura</strong>
+            Tot bé
+            <strong>Manera</strong>
+            Benissim
+            <strong>Sansó</strong>
+        </p>
+        <script>
+            $(document).ready(function(){
+                $("strong").click(function(){
+                    $(this).hide();
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with some words using <strong> element.
+        When you click on them, the words must be hidden.
+-->

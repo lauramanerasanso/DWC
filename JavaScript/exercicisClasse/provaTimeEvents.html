@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Time Events</title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="clock"></div>
+        <button id="b1" onclick="stopRellotge()">STOP RELLOTGE</button>
+        <script>
+            
+            var r = window.setInterval(rellotge, 1000);
+
+            function rellotge(){
+                var d = new Date();
+                document.getElementById("clock").innerHTML=d;
+            }
+
+            function stopRellotge(){
+                window.clearInterval(r);
+            }
+
+            
+            var a = window.setTimeout(alarm, 10000);
+
+            function alarm(){
+                document.getElementById("clock").style.color="#FF0000";
+            }
+
+        </script>
+    </body>
+</html>

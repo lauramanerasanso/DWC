@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 18 STRING Class. C</title>
+        <script>
+            function invertirString(string){
+                var x = string.length;
+                var invert = "";
+
+                while (x>=0) {
+                    invert = invert + string.charAt(x);
+                    x--;
+                }
+                return invert;
+            }
+
+            function esPalindroma(string){
+                var invert = invertirString(string);
+                if(string.toLowerCase() == invert.toLowerCase()){
+                    document.write("La paraula '" + string + "' és palindroma.");
+                }else{
+                    document.write("La paraula '" + string + "' no és palindroma.");
+                }
+
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var paraula=prompt("Introdueix una paraula: ","");
+            esPalindroma(paraula);
+        </script>
+    </body>
+</html>
+
+<!-- c) Enter a word and print a message if the word is a palindrome. -->

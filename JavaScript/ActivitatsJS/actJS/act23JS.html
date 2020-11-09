@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 23 CHECKBOX Element</title>
+        <script>
+            function showCheck() {
+                var missatge="";
+                if (document.getElementById('football').checked) {
+                    missatge = missatge + " Football";
+                }
+                if (document.getElementById('tennis').checked) {
+                    missatge = missatge + " Tennis";
+                }
+                if (document.getElementById('karate').checked) {
+                    missatge = missatge + " Karate";
+                }
+                alert(missatge);
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="checkbox" id="football">Football
+            <br>
+            <input type="checkbox" id="tennis">Tennis
+            <br>
+            <input type="checkbox" id="karate">Karate
+            <br>
+            <button id="b1" onclick="showCheck()">ENVIA</button>
+            </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+<!--
+    a) Check three different checkbox elements (Football, Tennis, and Karate). Finally when we press a button an alert message must appear showing the selected sports.
+-->

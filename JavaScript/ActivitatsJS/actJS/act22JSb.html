@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 22 SELECT Element. B</title>
+        <script>
+            function sumPrice() {
+                var sel1=document.getElementById("select1");
+                var sel2=document.getElementById("select2");
+                var sel3=document.getElementById("select3");
+                var price1=sel1.options[sel1.selectedIndex].value;
+                var price2=sel2.options[sel2.selectedIndex].value;
+                var price3=sel3.options[sel3.selectedIndex].value;
+                var sum=parseInt(price1)+parseInt(price2)+parseInt(price3);
+                document.getElementById("prt").value=sum+"€";
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Tria un processador: 
+            <select id="select1" >
+            <option value="">Tria un...</option>
+            <option value="400">Intel I3</option>
+            <option value="600">Intel I5</option>
+            <option value="800">Intel I7</option>
+            </select>
+            <br>
+
+            Tria un monitor: 
+            <select id="select2" >
+            <option value="">Tria un...</option>
+            <option value="250">Samsung 20'</option>
+            <option value="350">Samsung 22'</option>
+            <option value="550">Samsung 26'</option>
+            </select>
+            <br>
+
+            Tria un disc dur: 
+            <select id="select3">
+            <option value="">Tria un...</option>
+            <option value="300">500 Gb</option>
+            <option value="440">1 Tb</option>
+            <option value="500">3 Tb</option>
+            </select>
+            <br>
+
+
+            <input type="button" onclick="sumPrice()" id="b1" value="Calcula el preu">
+            <br>
+            Preu total: <input type="text" id="prt"><br>
+           </form>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+<!-- b) Generate a cost estimation for a computer using 3 different SELECT elements which allow us to select :
+
+Processor (Intel I3 - $400, Intel I5 $600, Intel I7 $800).
+Monitor (Samsung 20' - $250, Samsung 22' - $350, Samsung 26' - $550)
+Hard Disk (500 Gb - $300, 1 Tb - $440, 3 Tb - $500)
+When we press the button Calculate the final cost is shown in a TEXT element.
+-->

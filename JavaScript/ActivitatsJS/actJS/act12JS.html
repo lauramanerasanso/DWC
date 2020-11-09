@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 12 FOR Repetitive Structure</title>
+<script>
+
+</script>
+</head>
+<body>
+<script>
+    /* a) Enter the base B and height H of 3 triangles. For each triangle it must calculate and print
+    its area A= B*H/2 and how many triangles have an area bigger than 12. : */
+        var B;
+        var H;
+        var area;
+        var count = 0;
+
+        for (i = 1; i <= 3; i++) {
+            B = prompt("Introdueix la base del triangle " + i + ": ", "");
+            H = prompt("Introdueix l'altura del triangle " + i + ": ", "");
+            area = (B * H) / 2;
+            document.write("L'area del triangle " + i + " es: " + B + "*" + H + "/2=" + area + " u^2 <br>");
+            if (area > 12) {
+                count++ ;
+            }
+        }
+        document.write("Hi ha " + count + " triangles amb una area major a 12 u^2 ");
+        document.write("<br>");
+
+
+    /* b) Enter 10 numbers and print the sum of the last 5 numbers.*/
+
+    document.write("<br>");
+    var num;
+    var sum=0;
+        for(i=1;i<=10;i++){
+            num=prompt("Introdueix el nombre "+ i + ": ", "");
+            num=parseFloat(num);
+            if(i>5){
+                sum=sum+num;
+            }
+        }
+        document.write("La suma dels cinc darrers nombres es: " + sum);
+
+    document.write("<br>");
+
+    /* c) Print the 5 multiplication table (from 5 to 50).*/
+    document.write("<br> Taula de multiplicar del 5: ");
+
+    for (i = 0; i <= 10; i++) {
+            document.write("5 * " + i + " = " + (i * 5) + "<br>");
+        }
+
+    document.write("<br>");
+
+    /* d) Enter a number N and print its multiplication table (from N to N*10).*/
+    document.write("<br>");
+    var num = prompt("Introdueix un nombre i et fare la seva taula de multiplicar: ", "");
+        for (i = 0; i <= 10; i++) {
+            document.write(num + " * " + i + " = " + (num * i) + "<br>");
+        }
+
+    document.write("<br>");
+
+    /* e) Enter the sides of 4 triangles, and inform about:
+    For each triangle, what kind of triangle : equilateral (three equal sides), isosceles (two equal sides)
+    or scalene (all different sides).
+    How many triangles for each kind.
+    What kind of triangle there are more of them?*/
+    document.write("<br>");
+        var c1;
+        var c2;
+        var c3;
+        var countEq = 0;
+        var countIs = 0;
+        var countEs = 0;
+
+        for (i = 1; i <= 4; i++) {
+            c1 = prompt("Introdueix la mida del primer costat del triangle "+ i +": ", "");
+            c2 = prompt("Introdueix la mida del segon costat del triangle "+ i +": ", "");
+            c3 = prompt("Introdueix la mida del tercer costat del triangle "+ i +": ", "");
+            if (c1 == c2) {
+                if (c2 == c3) {
+                    document.write("El triangle te els tres costats iguals: es equilater" + "<br>");
+                    countEq++;
+                } else {
+                    document.write("El triangle te dos costats iguals: es isosceles" + "<br>");
+                    countIs++;
+                }
+            } else if (c1 == c3) {
+                if (c3 == c2) {
+                    document.write("El triangle te els tres costats iguals: es equilater " + "<br>");
+                    countEq++;
+                } else {
+                    document.write("El triangle te dos costats iguals: es isosceles" + "<br>");
+                    countIs++;
+                }
+            } else if (c2 == c3) {
+                if (c3 == c1) {
+                    document.write("El triangle te els tres costats iguals: es equilater" + "<br>");
+                    countEq++;
+                } else {
+                    document.write("El triangle te dos costats iguals: es isosceles" + "<br>");
+                    countIs++;
+                }
+            } else {
+                document.write("El triangle no te cap costat igual: es escale" + "<br>");
+                countEs++;
+            }
+        }
+
+        document.write("<br>")
+        document.write("Hi ha " + countEq + " triangles equilaters" + "<br>");
+        document.write("Hi ha " + countIs + " triangles isosceles" + "<br>");
+        document.write("Hi ha " + countEs + " triangles escale" + "<br>");
+
+        if (countEq > countIs) {
+            if (countEq > countEs) {
+                document.write("Hi ha mes triangles equilaters");
+            } else {
+                document.write("Hi ha mes triangles escales");
+            }
+        } else if (countIs > countEs) {
+            document.write("Hi ha mes triangles isosceles");
+        } else {
+            document.write("Hi ha mes triangles escales");
+        }
+
+    document.write("<br>");
+
+    /* f) Enter 10 numbers and print ...
+    How many positive numbers are there?
+    How many negative numbers are there?
+    How many odd numbers are there?
+    What is the sum of the pair numbers?*/
+    document.write("<br>");
+        var num;
+        var countNeg = 0;
+        var countPos = 0;
+        var countImpar = 0;
+        var sumPar = 0;
+
+        for (i = 0; i < 10; i++) {
+            num = prompt("Introdueix el nombre "+ i +": ", "");
+            num = parseFloat(num);
+
+            if (num % 2 == 1) {
+                countImpar++;
+            } else {
+                sumPar = sumPar + num;
+            }
+
+            if (num > 0) {
+                countPos++;
+            } else {
+                countNeg++;
+            }
+
+        }
+
+
+        document.write("Hi ha " + countPos + " nombres positius" + "<br>");
+        document.write("Hi ha " + countNeg + " nombres negatius" + "<br>");
+        document.write("Hi ha " + countImpar + " nombres imparells" + "<br>");
+        document.write("La suma dels nombres parells es de: " + sumPar);
+
+    document.write("<br>");
+
+    /* g) Enter the marks of students of three different classes (class A : 5 students, class B: 6 students,
+    class C: 11 students) and print ...
+    The average of the marks for every class.
+    What is the class with the best average?*/
+
+    document.write("<br>");
+        var avgA;
+        var avgB;
+        var avgC;
+        var suma = 0;
+        var mark;
+
+
+        for (i = 1; i <= 5; i++) {
+            mark = prompt("Introdueix la nota "+i+" de la classe A: ", "");
+            mark = parseFloat(mark);
+            suma += mark;
+        }
+        avgA = (suma / 5);
+        avgA = parseFloat(avgA);
+        suma = 0;
+
+        for (i = 1; i <= 6; i++) {
+            mark = prompt("Introdueix la nota "+i+" de la classe B: ", "");
+            mark = parseFloat(mark);
+            suma += mark;
+        }
+        avgB = (suma / 6);
+        avgB = parseFloat(avgB);
+        suma = 0;
+
+
+        for (i = 1; i <= 11; i++) {
+            mark = prompt("Introdueix la nota "+i+" de la classe C: ", "");
+            mark = parseFloat(mark);
+            suma += mark;
+        }
+        avgC = (suma / 11);
+        avgC = parseFloat(avgC);
+
+        document.write("La mitjana de les notes de la classe A es: " + avgA + "<br>" + " La de la classe B es: " + avgB + "<br>" + " I la de la classe C es: " + avgC + "<br>");
+
+        if (avgA > avgB) {
+            if (avgA > avgC) {
+                document.write("La classe amb millor mitjana es la classe A");
+            } else {
+                document.write("La classe amb millor mitjana es la classe C");
+            }
+        } else if (avgB > avgC) {
+            document.write("La classe amb millor mitjana es la classe B");
+        } else {
+            document.write("La classe amb millor mitjana es la classe C");
+        }
+
+    document.write("<br>");
+
+</script>
+</body>
+</html>

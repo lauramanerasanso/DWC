@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Prova 1 JQuery</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <p id="p1">Hola JQuery</p>
+        <p id="p2">Adeu JQuery</p>
+        <button>CLICK</button>
+        <script>
+            $(document).ready(function(){
+
+                $("button").click(function(){
+                    $("#p1").hide();
+                });
+
+                $("#p2").click(function(){
+                    $(this).hide();
+                });
+
+                
+            });
+        </script>
+    </body>
+</html>

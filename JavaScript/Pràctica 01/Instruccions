@@ -1,0 +1,26 @@
+PRÀCTICA 01. Disseny d’un Sistema de Gestió d’un Magatzem.
+    Defineix 3 objectes (Magatzem, Estant i Paquet).
+
+    (x) Un Magatzem té un Array de Estants de llargada fixe.
+
+    (x) Una Estant té un número identificatiu, un estat (lliure, ocupat), un Paquet (si està ocupat),
+    un instant d’entrada i un de sortida.
+
+    (x) Un Paquet té una identificador, destinatari i pes.
+
+    Funcionalitats:
+        (x) Visualitzar l’estat actual del magatzem en una taula HTML.
+
+        Formulari per: (Posicio(sortida), codi, destinatari, pes)(entrada)
+
+            (x) Entrada d’un Paquet en un Estant del Magatzem.
+
+            (x) Sortida d’un Paquet del Magatzem.
+
+        (x) Indicar quants estants disponibles / ocupats té el Magatzem.
+
+        (x) Indicar aquell Paquet amb més temps al Magatzem.
+
+        (x) Calcular el preu del paquet en funció del pes. (Suposem la Tarifa : 0.75 € X kg)
+
+        (x) Ordenar els Paquets del Magatzem per pes descendent.

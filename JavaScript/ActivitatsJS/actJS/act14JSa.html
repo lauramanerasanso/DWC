@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+<title>Act 14 Object Oriented Programming (OOP). A</title>
+<script>
+    function Addition(value1,value2){
+        this.value1=value1;
+        this.value2=value2;
+        this.loadValue1=loadValue1;
+        this.loadValue2=loadValue2;
+        this.result=result;
+
+        function loadValue1(val1){
+            this.value1=val1;
+        }
+
+        function loadValue2(val2){
+            this.value2=val2;
+        }
+
+        function result(){
+
+            document.write(parseInt(this.value1)+parseInt(this.value2));
+            document.write("<br>");
+        }
+
+    }
+    
+</script>
+</head>
+<body>
+<script>
+    suma= new Addition(4,5);
+    suma.result();
+    suma.loadValue1(8);
+    suma.loadValue2(2);
+    suma.result();  
+
+
+</script>
+</body>
+</html>
+
+<!-- a) Create a class called Addition with 2 attributes (valeu1 and value2) and three methods (loadValue1, loadValue2 and result). Try this class to do some additions.-->

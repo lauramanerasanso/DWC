@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+<title>Act 14 Object Oriented Programming (OOP). B</title>
+<script>
+    
+
+    function Company(companyName){
+
+        this.companyName=companyName;
+        this.topAgeWorker=0;
+
+        this.countTreballadors=0;
+        this.treballadors=new Array();
+
+        this.addTreballador = addTreballador;
+        function addTreballador(treballador){
+            this.treballadors[this.countTreballadors]=treballador;
+            this.countTreballadors++;
+
+            if(this.topAgeWorker < treballador.age){
+                this.topAgeWorker = treballador.age;
+            }
+
+        }
+        this.printTreballadors = printTreballadors;
+        function printTreballadors(){
+            document.write("<h2>Treballadors de "+this.companyName+" </h2>");
+            document.write("<ul>");
+            for(var i = 0 ; i<this.treballadors.length ; i++){
+                document.write("<li>"+this.treballadors[i].imprimir() + "</li>" );
+            }
+            document.write("</ul>");
+
+        }  
+        
+    }
+
+    function Person(name, age){
+        this.name=name;
+        this.age=age;
+
+        this.imprimir = imprimir;
+		function imprimir(){
+			return "Nom: "+ this.name + ", Edat: " + this.age;
+		}
+    }
+
+    
+
+    
+</script>
+</head>
+<body>
+<script>
+var company = new Company("Laura S.L.");
+
+var t1 = new Person("Laura", 21);
+company.addTreballador(t1);
+
+var t2 = new Person("Francesc", 18);
+company.addTreballador(t2);
+
+var t3 = new Person("Macia", 58);
+company.addTreballador(t3);
+
+document.write("Edat Màxima: "+company.topAgeWorker);
+
+company.printTreballadors();
+
+</script>
+</body>
+</html>
+
+<!-- b) Create a class called Person (name and age), a class called Company (name and top age workers).
+    Write a script to create 2 workers and 1 company. Show how many people are able to work in this company.-->

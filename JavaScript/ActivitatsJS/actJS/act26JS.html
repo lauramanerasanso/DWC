@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Act 26 onFocus & onBlur Events</title>
+        <script>
+            function empty(control){
+                control.value='';
+            }
+            function checkEntry(control){
+                if (control.value=='')
+                    alert('You must enter data!');
+            }
+
+            function checkPass(){
+                var pass = document.getElementById("pass").value;
+                if(pass.length < 7 || pass.length > 20){
+                    alert('La mida de la contrasenya no és correcte! He de tenir entre 7 i 20 caràcters.');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+        <form>
+            <input type="text" id="username" onFocus="empty(this)" onBlur="checkEntry(this);" value="Nom d'usuari"><br>
+            <input type="password" id="pass" onFocus="empty(this)" onBlur="checkEntry(this); checkPass();" value="·······">
+            <br>
+            <input type="button" value="INICIAR SESSIÓ">
+        </form>
+    </body>
+</html>
+
+<!--
+    a) Enter a username and password and then show an alert message if the password
+    is shorter than 7 characters or longer than 20 characters.
+-->

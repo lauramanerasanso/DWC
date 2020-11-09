@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 08 - Using addClas() and removeClass() Methods</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            .th{
+                background-color:burlywood;
+            }
+            .tb{
+                background-color: antiquewhite;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="t1">
+            <thead >
+                <tr>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                </tr>
+            </thead>
+            <tbody >
+                <tr>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                </tr>
+                <tr>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                    <td>OFF</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button id="b1">ADD CLASS</button>
+        <button id="b2">REMOVE CLASS</button>
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("#t1 thead").addClass("th");
+                    $("#t1 tbody").addClass("tb");
+                });
+
+                $("#b2").click(function(){
+                    $("#t1 thead").removeClass("th");
+                    $("#t1 tbody").removeClass("tb");
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with a table. Define two styles,
+    one for the <thead> section and the other for the
+    <tbody> section. Using two buttons link and
+    unlink the two styles or classes.
+-->

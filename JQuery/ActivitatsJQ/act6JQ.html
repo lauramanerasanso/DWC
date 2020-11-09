@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 06 - Using text() Method</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <table id="t1">
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+
+            </tr>
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+
+            </tr>
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+
+            </tr>
+        </table>
+        <br>
+        <table id="t2">
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+            </tr>
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+            </tr>
+            <tr>
+                <td>OFF</td>
+                <td>OFF</td>
+                <td>OFF</td>
+            </tr>
+        </table>
+        <button id="b1">TURN ON</button>
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("#t1 td").text("ON");
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with two tables. Every table has
+    3 rows and 3 columns, and every cell has the same text
+    "OFF". When we press a button the text inside the first
+    table must change to "ON", but the second table mustn’t
+    change at all.
+-->

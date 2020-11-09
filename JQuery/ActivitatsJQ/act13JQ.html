@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 13 - Using mousemove Event</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            #div1{
+                width: 200px;
+                height: 200px;
+                background-color: darksalmon;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+            
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#div1").mousemove(function(){
+                    alert("x = "+ event.clientX +"\ny = " + event.clientY);
+                });
+
+                $("#div1").mouseout(function(){
+                    alert("Mouse out of the DIV");
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a div with a width and height of 200 pixels. Then the mouse
+    position must be displayed when the mouse cursor is over this div. And
+    a message "Mouse out of the DIV" must be displayed when the mouse cursor
+    isn't inside the div.
+-->

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 05 - Selecting an Element by CSS Classes</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <h1 id="h1">Hola</h1>
+        <h1 id="h2">Que tal</h1>
+        <p id="p1" class="odd">Laura</p>
+        <p id="p2">Manera</p>
+        <p id="p3" class="odd">Sansó</p>
+
+        <button id="b1">SMALL</button>
+        <button id="b2">MEDIUM</button>
+        <button id="b3">BIG</button>
+
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("p.odd").css("font-size","10px");
+                });
+
+                $("#b2").click(function(){
+                    $("p.odd").css("font-size","15px");
+                });
+
+                $("#b3").click(function(){
+                    $("p.odd").css("font-size","20px");
+                });
+            });
+        </script>
+    </body>
+</html>
+
+<!--
+    a) Create a web page with five different <h1>
+        and <p> elements representing the headline
+            and summary of a newspaper article. And
+            three different buttons to change the
+            text font size of the content in the
+            odd paragraphs to small (10px), medium
+            (15px) or big (20px) respectively.
+-->

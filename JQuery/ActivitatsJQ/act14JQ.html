@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 14 - Using mouseup and mousedown Event</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <button id="b1">PRESS ME</button>
+        <button id="b2">PRESS ME</button>
+        <script>
+            $(document).ready(function(){
+                $("#b1").mouseup(function(){
+                    $(this).css({"background-color":"#ffffff"});
+                });
+                $("#b1").mousedown(function(){
+                    $(this).css({"background-color":"#ff0000"});
+                });
+                $("#b2").mouseup(function(){
+                    $(this).css({"background-color":"#ffffff"});
+                });
+                $("#b2").mousedown(function(){
+                    $(this).css({"background-color":"#00ff00"});
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with 2 buttons. When you press on a button, its
+    background colour must change, and when you release the button, it
+    must return to the original background colour.
+-->

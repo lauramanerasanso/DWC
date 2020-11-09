@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Prova Dimensions WINDOW - LMS</title>
+        <script>
+            function loadURL(n)
+            {
+                if(n==1){
+                    window.location.assign("http://www.google.com" );
+                }
+                if(n==2){
+                    window.location.assign("http://www.iesmanacor.cat" );
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id="b1" onclick="loadURL(1);">GOOGLE</button>
+        <button id="b1" onclick="loadURL(2);">IES MANACOR</button>
+        <div id="example"></div>
+        <script>
+            txt = "<p>Browser CodeName: " + navigator.appCodeName + "</p>"; txt+= "<p>Browser Name: " + navigator.appName + "</p>";
+            txt+= "<p>Browser Version: " + navigator.appVersion + "</p>"; txt+= "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>"; txt+= "<p>Platform: " + navigator.platform + "</p>";
+            txt+= "<p>User-agent header: " + navigator.userAgent + "</p>"; txt+= "<p>User-agent language: " + navigator.systemLanguage + "</p>";
+            document.getElementById("example").innerHTML=txt;
+        </script>
+    </body>
+
+</html>
+
+<!-- CODI MORT
+    </head>
+    <body>
+        <h3>Your Screen:</h3>
+    <script>
+        document.write("Total width/height: "); document.write(screen.width + "*" + screen.height); document.write("<br>");
+        document.write("Available width/height: "); document.write(screen.availWidth + "*" + screen.availHeight);
+        document.write("<br>");
+        document.write("Color depth: "); document.write(screen.colorDepth); document.write("<br>");
+        document.write("Color resolution: "); document.write(screen.pixelDepth);
+    </script>
+    </body>
+-->

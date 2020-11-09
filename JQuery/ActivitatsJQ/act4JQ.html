@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 04 - Selecting an Element by CSS Selectors</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+
+            tr{
+                border:solid;
+            }
+        </style>
+    </head>
+    <body>
+        <table id="t1">
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+            </tr>
+        </table>
+        <br>
+        <table id="t2">
+            <tr>
+                <td>u</td>
+                <td>u</td>
+                <td>u</td>
+                <td>u</td>
+            </tr>
+            <tr>
+                <td>d</td>
+                <td>d</td>
+                <td>d</td>
+                <td>d</td>
+            </tr>
+            <tr>
+                <td>t</td>
+                <td>t</td>
+                <td>t</td>
+                <td>t</td>
+            </tr>
+        </table>
+
+        <script>
+            $(document).ready(function(){
+                $("#t1").click(function(){
+                    $(this).css("background-color", "#ff0000")
+                });
+
+                $("#t2").click(function(){
+                    $(this).css("font-size", "50px")
+                });
+                
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a web page with two tables. Every table with 3 rows. And write
+    a script using jQuery to change the background colour when you click on
+    a row y in the first table, and to change the text size in the second table.
+-->
