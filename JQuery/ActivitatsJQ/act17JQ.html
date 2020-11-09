@@ -9,7 +9,7 @@
     </head>
     <body>
         <form>
-            <input type="text" name="" id="t1" placeholder="Laura">
+            <input type="text" name="" id="t1" placeholder="Laura" value="">
         </form>
         <script>
             $(document).ready(function(){
@@ -17,7 +17,7 @@
             });
 
             function esBuit(){
-                if($("input").val === ""){
+                if($(this).val() == ""){
                     alert("Field can't be empty");
                 }
             };
