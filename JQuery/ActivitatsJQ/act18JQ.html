@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 18 - DOM Elements Transformation</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+		<div id="div1">
+
+        </div>
+        <hr/>
+        <div>
+            <button id="b1">AFEGIR ITEM</button>
+            <button id="b2">ELIMINAR TOTS ELS ITEMS</button>
+        </div>
+        <script>
+            $(document).ready(function(){
+
+                var countDivs=0;
+
+                $("#b1").click(function(){
+
+                    var nDiv = $("<div/>", {id : 'div_'+countDivs});
+
+                    var nInput = $("<input/>", {type : 'text',
+                        id : 'div_'+countDivs,
+                        value : countDivs
+                    });
+
+                    var nB = $("<button/>", { id : "b_"+countDivs,
+                        text: "Botó " +countDivs,
+                        click:function(){
+                            $(this).parent().remove();
+                        }
+                    });
+
+                    var br = $("</br>");
+
+                    nDiv.append(nInput);
+                    nDiv.append(nB);
+                    nDiv.append(br);
+
+                    $("#div1").append(nDiv);
+
+                    countDivs++;
+                });
+
+                $("#b2").click(function(){
+                    $("#div1").empty();
+
+                    countDivs = 0;
+                });
+
+
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a form where you can add and remove text fields. You can use a button
+    to create new text fields. Every text field must have its particular button to remove itself.
+-->

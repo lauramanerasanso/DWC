@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 20 - Effects by fadeIn and fadeOut Methods</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <p id="p1">P1.1</p>
+            <p id="p2">P2.1</p>
+            <p id="p3">P3.1</p>
+            <p id="p4">P4.1</p>
+        </div>
+        <div id="div2" style="display: none;">
+            <p id="p1">P1.2</p>
+            <p id="p2">P2.2</p>
+            <p id="p3">P3.2</p>
+            <p id="p4">P4.2</p>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#div1").click(function(){
+                    $(this).fadeOut(function(){
+                        $("#div2").fadeIn();
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a DIV with some paragraphs. When you press on this div, it must be faded out.
+    And when it is completely hidden, another div must be faded in.
+-->

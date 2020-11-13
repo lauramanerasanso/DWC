@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 23 - Element Iteration using each Method</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li><a href="https://www.google.es">google es</a></li>
+            <li><a href="https://www.google.cat">google cat</a></li>
+            <li><a href="https://www.google.cat">google cat</a></li>
+            <li><a href="https://www.google.es">google es</a></li>
+        </ul>
+        <script>
+            $(document).ready(function(){
+                $("a").each(function(){
+                    if($(this).attr("href").indexOf(".es") >= 0){
+                        $(this).css("background-color","#f00");
+                    }
+
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Create a page with a list of links (<a>).
+        Create a script to highlight all the links
+        to subdomains .es. Use the indexOf String
+        method.
+-->
