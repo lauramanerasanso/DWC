@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 25 - Using $.get & $.post Methods (AJAX)</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+            Introdueix un nombre: <input type="text" name="num1" id="num1" ><br>
+            Introdueix un altre nombre: <input type="text" name="num2" id="num2"><br>
+
+            <button id="suma">SUMA</button>
+            <button id="resta">RESTA</button>
+            <button id="multiplicacio">MULTIPLIACIÓ</button>
+            <button id="divisio">DIVISIÓ</button>
+            
+            <div id="resultat"></div>
+        <script>
+            $(document).ready(function(){
+                
+                $("#suma").click(function(){
+                    var n1 = $("#num1").val();
+                var n2 = $("#num2").val();
+                    var t = "1";
+                    console.log(n1,n2,t);
+
+                    $.get("act25.php", {num1:n1, num2:n2 , tipus:t}, print);
+                    
+                });
+
+                $("#resta").click(function(){
+                    var n1 = $("#num1").val();
+                    var n2 = $("#num2").val();
+                    var t = "2";
+
+                    $.get("act25.php", {num1:n1, num2:n2 , tipus:t}, print);
+                    
+                });
+
+                $("#multiplicacio").click(function(){
+                    var n1 = $("#num1").val();
+                    var n2 = $("#num2").val();
+                    var t = "3";
+
+                    $.get("act25.php", {num1:n1, num2:n2 , tipus:t}, print);
+                   
+                });
+
+                $("#divisio").click(function(){
+                    var n1 = $("#num1").val();
+                    var n2 = $("#num2").val();
+                    var t = "4";
+
+                    $.get("act25.php", {num1:n1, num2:n2 , tipus:t}, print);
+                    
+                });
+
+                function print(data){
+                    $("#resultat").html(data);
+                }
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Write a Javascript script that uses 2 input text
+    controls to enter the value of the 2 operands and
+    4 different buttons to perform the 4 basic arithmetic
+    operations (addition, substraction, product and
+    division). The data (2 operands and 1 operation)
+    is sent to the server where the corresponding
+    operation is calculated and returned using
+    $.post or $.get function. The result is shown
+    in a div.
+-->

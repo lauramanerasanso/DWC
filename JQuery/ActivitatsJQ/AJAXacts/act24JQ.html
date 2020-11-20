@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>ACT 24 - Using load Method (AJAX)</title>
+        <script src="jquery-3.5.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="files"></div>
+        <button id="f1">LOAD FILE 1</button>
+        <button id="f2">LOAD FILE 2</button>
+        <script>
+            $(document).ready(function(){
+                $("#f1").click(function(){
+                    $("#files").load("file1.txt");
+                });
+
+                $("#f2").click(function(){
+                    $("#files").load("file2.txt");
+                });
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Write a Javascript script that loads the
+    information from two different txt files
+    (fiile1.txt, file2.txt) inside a div container
+    using the jQuery load method depending on which
+    of the buttons #button1 or #button2 is clicked.
+-->

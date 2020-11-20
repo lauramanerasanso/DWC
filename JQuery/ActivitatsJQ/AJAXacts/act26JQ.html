@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>JACT 26 - Using $.getJSON Method (AJAX)</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <select name="cities" id="cities">
+            <option value="MONTUIRI"></option>
+            <option value="SANT JOAN"></option>
+            <option value="VILAFRANCA"></option>
+            <option value="MANACOR"></option>
+        </select>
+        <button id="b1"></button>
+        <div id="info"></div>
+        <script>
+            $(document).ready(function(){
+
+            });
+            $(document).ready(function(){
+
+            $("#b1").click(function(){
+            
+            var cities = $("#cities").val();
+
+            $.getJSON("act26.php", {city: cities}, function( data ) {
+                    console.log( "JSON Data: " + data );
+                    $("#info").html("NAME: "+data.name+"<br/>"+
+                                    "AGE: "+data.age+"<br/>"+
+                                    "CITY: "+data.city+"<br/>");
+                    });
+
+                });
+
+            });
+        </script>
+    </body>
+</html>
+<!--
+    a) Write a Javascript script that uses a SELECT form field with various names of cities
+    (MANACOR, PALMA, INCA, SOLLER; ...) to filter the information from a JSON file with the
+    company workers information (name, age  and city). The filtered result must be shown in
+    an unordered list UL. Use a JSON file as the following one. 
+-->
