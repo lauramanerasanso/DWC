@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CUINA>
+    <PLATS>
+        <PLAT>
+            <ID>01</ID>
+            <TITOL>TARTA PASTANAGO</TITOL>
+            <DIFICULTAT>FACIL</DIFICULTAT>
+            <TIPUS>POSTRE</TIPUS>
+            <PREU>5€</PREU>
+            <INGREDIENTS>
+                <INGREDIENT>001</INGREDIENT>
+                <INGREDIENT>002</INGREDIENT>
+                <INGREDIENT>003</INGREDIENT>
+                <INGREDIENT>004</INGREDIENT>
+                <INGREDIENT>005</INGREDIENT>
+                <INGREDIENT>006</INGREDIENT>
+                <INGREDIENT>007</INGREDIENT>
+                <INGREDIENT>008</INGREDIENT>
+                <INGREDIENT>009</INGREDIENT>
+                <INGREDIENT>010</INGREDIENT>
+            </INGREDIENTS>
+        </PLAT>
+        <PLAT>
+            <ID>02</ID>
+            <TITOL>SALSA PESTO</TITOL>
+            <DIFICULTAT>FÀCIL</DIFICULTAT>
+            <TIPUS>SALSA</TIPUS>
+            <PREU>3€</PREU>
+            <INGREDIENTS>
+                <INGREDIENT>003</INGREDIENT>
+                <INGREDIENT>011</INGREDIENT>
+                <INGREDIENT>012</INGREDIENT>
+                <INGREDIENT>013</INGREDIENT>
+            </INGREDIENTS>
+        </PLAT>
+        <PLAT>
+            <ID>03</ID>
+            <TITOL>TORTITAS CIVADA</TITOL>
+            <DIFICULTAT>FÀCIL</DIFICULTAT>
+            <TIPUS>SNACK</TIPUS>
+            <PREU>2€</PREU>
+            <INGREDIENTS>
+                <INGREDIENT>009</INGREDIENT>
+                <INGREDIENT>014</INGREDIENT>
+            </INGREDIENTS>
+        </PLAT>
+    </PLATS>
+    <INGREDIENTS>
+        <INGREDIENT>
+            <ID>001</ID>
+            <NOM>FARINA BLAT</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>002</ID>
+            <NOM>PASTANAGO</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>003</ID>
+            <NOM>OLI OLIVA</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>004</ID>
+            <NOM>ANOUS</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>005</ID>
+            <NOM>CANYELLA</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>006</ID>
+            <NOM>LLEVAT QUÍMIC</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>007</ID>
+            <NOM>NOU MOSCADA</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>008</ID>
+            <NOM>SAL</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>009</ID>
+            <NOM>OU</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>010</ID>
+            <NOM>SUCRE</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>011</ID>
+            <NOM>AUFABAGUERA</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>012</ID>
+            <NOM>PINYONS</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>013</ID>
+            <NOM>PARMESANO</NOM>
+        </INGREDIENT>
+        <INGREDIENT>
+            <ID>014</ID>
+            <NOM>FARINA CIVADA</NOM>
+        </INGREDIENT>
+    </INGREDIENTS>
+</CUINA>

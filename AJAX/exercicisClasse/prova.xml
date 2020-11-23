@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLASSE>
+    <ALUMNES>
+        <ALUMNE>
+            <NOM>Laura</NOM>
+            <LLINATGES>Manera Sansó</LLINATGES>
+            <EDAT>21</EDAT>
+        </ALUMNE>
+        <ALUMNE>
+            <NOM>Amanda</NOM>
+            <LLINATGES>Mula Riera</LLINATGES>
+            <EDAT>28</EDAT>
+        </ALUMNE>
+    </ALUMNES>
+    <PROFESSORS>
+        <PROFESSOR>
+            <NOM>Antoni</NOM>
+            <LLINATGES>Ramirez</LLINATGES>
+            <ASSIGNATURA>DWEC</ASSIGNATURA>
+        </PROFESSOR>
+    </PROFESSORS>
+</CLASSE>

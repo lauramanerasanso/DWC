@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>PROVA AJAX</title>
+        <script src="../../../jquery-3.5.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div id="demo">
+            <h2>The XMLHttpRequest Object</h2>
+            <button type="button" id="b1" onclick="loadDoc('ajax_info.txt')">Change Content</button>
+            <button type="button" id="b2" onclick="loadDoc('ajax_info1.txt')">Change Content</button>
+        </div>
+        <div id="d1"></div>
+        <script>
+            function loadDoc(url) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("d1").innerHTML =
+                    this.responseText;
+            } };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            }
+
+        </script>
+    </body>
+</html>

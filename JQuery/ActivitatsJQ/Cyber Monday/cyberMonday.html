@@ -91,6 +91,9 @@
                             <button type="submit" id="b6" class="btn btn-dark form-control">DELETE</button>
                         </div>
                     </div>
+                    <div class="row" id="taula_prod">
+
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="compra" role="tabpanel" aria-labelledby="compra-tab">
@@ -104,25 +107,63 @@
                 var categories = ["FOOD", "DECOR", "SPORT"];
                 var productes = [["1", "Spaghetti", "1.99", "FOOD"],["2", "Làmpada de peu", "45.99", "DECOR"]];
                 
-                var txt = "<ul>";
+                function printLlistaCat(){
+                    var txt = "<ul>";
                     for(var i = 0 ; i < categories.length ; i++){
                         txt += "<li>" + categories[i] + "</li>";
                     }
-                txt += "</ul>";
-                $("#info").html(txt);
-
-                var optiontxt = "<option active disabled> Tria'n una... </option>";
-                for(var i = 0 ; i < categories.length ; i++){
-                        optiontxt += "<option>" + categories[i] + "</option>";
+                    txt += "</ul>";
+                    return txt;
                 }
+                var txt = printLlistaCat();
+                $("#info").html(txt);
+                
+                function printSelectCat(){
+                    var optiontxt = "<option active disabled> Tria'n una... </option>";
+                    for(var i = 0 ; i < categories.length ; i++){
+                            optiontxt += "<option>" + categories[i] + "</option>";
+                    }
+                    return optiontxt;
+                }
+                var optiontxt = printSelectCat();
                 $("#selectCategories").html(optiontxt);
                 $("#selectCat").html(optiontxt);
 
-                var prodtxt = "<option active disabled> Tria'n un... </option>";
-                for(var i = 0 ; i < productes.length ; i++){
-                        prodtxt += "<option>" + productes[i][0] + "</option>";
+                function printSelectProd(){
+                    var prodtxt = "<option active disabled> Tria'n un... </option>";
+                    for(var i = 0 ; i < productes.length ; i++){
+                            prodtxt += "<option>" + productes[i][0] + "</option>";
+                    }
+                    return prodtxt;
                 }
+                var prodtxt = printSelectProd();
                 $("#selectProductes").html(prodtxt);
+
+                function printTableProd(){
+                    var prodtable = "<table class='table table-bordered'> <thead> <th scope='col'>CODI</th> <th scope='col'>PRODUCTE</th>";
+                    prodtable += "<th scope='col'>PREU</th> <th scope='col'>CATEGORIA</th> </thead> </tbody>";
+                    for(var i = 0 ; i < productes.length ; i++){
+                        prodtable += "<tr><td scope='row'>" + productes[i][0] + "</td>";
+                        prodtable += "<td>" + productes[i][1] + "</td>";
+                        prodtable += "<td>" + productes[i][2] + "</td>";
+                        prodtable += "<td>" + productes[i][3] + "</td></tr>";
+                    }
+                    prodtable += "</tbody></table>";
+                    return prodtable;
+                }
+                var prodtable = printTableProd();
+                $("#taula_prod").html(prodtable);
+
+                function indexOf2D(productes, item) {
+                    var index;
+                    for (var i = 0; i < productes.length; i++) {
+                        if (productes[i] == item) {
+                            index = i;
+                        }
+                    }
+                    return index;
+                }
+
 
                 $("#b1").click(function(){
 
@@ -130,19 +171,13 @@
 
                     categories.push(newItem);
                     $("#inputCategoria").val("");
+
                     $("#info").empty();
-                    var txt = "<ul>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                        txt += "<li>" + categories[i] + "</li>";
-                    }
-                    txt += "</ul>";
+                    var txt = printLlistaCat();
                     $("#info").html(txt);
 
                     $("#selectCategories").empty();
-                    var optiontxt = "<option active disabled> Tria'n una... </option>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                            optiontxt += "<option>" + categories[i] + "</option>";
-                    }
+                    var optiontxt = printSelectCat();
                     $("#selectCategories").html(optiontxt);
                     $("#selectCat").html(optiontxt);
                 });
@@ -153,19 +188,13 @@
                     categories[indexMod] = $("#inputCategoria").val();
 
                     $("#inputCategoria").val("");
+
                     $("#info").empty();
-                    var txt = "<ul>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                        txt += "<li>" + categories[i] + "</li>";
-                    }
-                    txt += "</ul>";
+                    var txt = printLlistaCat();
                     $("#info").html(txt);
 
                     $("#selectCategories").empty();
-                    var optiontxt = "<option active disabled> Tria'n una... </option>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                            optiontxt += "<option>" + categories[i] + "</option>";
-                    }
+                    var optiontxt = printSelectCat();
                     $("#selectCategories").html(optiontxt);
                     $("#selectCat").html(optiontxt);
                 });
@@ -176,20 +205,63 @@
                     categories.splice(indexMod, 1);
 
                     $("#info").empty();
-                    var txt = "<ul>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                        txt += "<li>" + categories[i] + "</li>";
-                    }
-                    txt += "</ul>";
+                    var txt = printLlistaCat();
                     $("#info").html(txt);
 
                     $("#selectCategories").empty();
-                    var optiontxt = "<option active disabled> Tria'n una... </option>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                            optiontxt += "<option>" + categories[i] + "</option>";
-                    }
+                    var optiontxt = printSelectCat();
                     $("#selectCategories").html(optiontxt);
                     $("#selectCat").html(optiontxt);
+                });
+
+                $("#b4").click(function(){
+
+                    var codi = $("#inputCodi").val();
+                    var desc = $("#inputDesc").val();
+                    var preu = $("#inputPreu").val();
+                    var categ = $("#selectCat").val();
+
+                    var newItem = [codi, desc, preu, categ];
+
+                    productes.push(newItem);
+                    $("#inputCodi").val("");
+                    $("#inputDesc").val("");
+                    $("#inputPreu").val("");
+
+                    $("#taula_prod").empty();
+                    var prodtable = printTableProd();
+                    $("#taula_prod").html(prodtable);
+
+                    $("#selectProductes").empty();
+                    var prodtxt = printSelectProd();
+                    $("#selectProductes").html(prodtxt);
+                });
+
+                $("#b5").click(function(){
+
+                    var itemMod = $("#selectProductes").val();
+                    var indexMod = indexOf2D(productes, idemMod);
+
+                    var codi = $("#inputCodi").val();
+                    var desc = $("#inputDesc").val();
+                    var preu = $("#inputPreu").val();
+                    var categ = $("#selectCat").val();
+
+                    var itemModificat = [indexMod, desc, preu, categ];
+
+                    productes[indexProd] = itemModificat;
+
+                    $("#inputCodi").val("");
+                    $("#inputDesc").val("");
+                    $("#inputPreu").val("");
+
+                    $("#taula_prod").empty();
+                    var prodtable = printTableProd();
+                    $("#taula_prod").html(prodtable);
+
+                    $("#selectProductes").empty();
+                    var prodtxt = printSelectProd();
+                    $("#selectProductes").html(prodtxt);
                 });
 
             });
