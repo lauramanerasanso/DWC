@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Hint Plats (PHP)</h2>
+<label for="plat">Introdueix el nom del plat:</label>
+<input type="text" id="plat" name="plat" onkeyup="showHint(this.value)"/>
+<div>Suggeriments:</div><div id="result"></div>
+<hr>
+<h2>Select Plats (PHP)</h2>
+<select id="ingredient" onchange="showTable(this.value);"></select>
+<div id="plats"></div>
+ 
+<script>
+
+	function showHint(str) {
+		if (str.length == 0) { 
+    		document.getElementById("result").innerHTML = "";
+    		return;
+  		}
+		var xhttp = xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("result").innerHTML=this.responseText;
+  			}
+		};
+		xhttp.open("GET", "platsHint.php?q="+str, true);
+		xhttp.send();
+    }
+    
+    var xhttp = xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("ingredient").innerHTML=this.responseText;
+  		}
+	};
+	xhttp.open("GET", "platsOption.php", true);
+    xhttp.send();
+    
+    function showTable(str) {
+		if (str.length == 0) { 
+    		document.getElementById("plats").innerHTML = "";
+    		return;
+  		}
+		var xhttp = xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("plats").innerHTML=this.responseText;
+  			}
+		};
+		xhttp.open("GET", "platsTable.php?ingredient="+str, true);
+		xhttp.send();
+	}
+
+</script>
+
+</body>
+</html>
