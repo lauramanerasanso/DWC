@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOP JSON</title>
+</head>
+<body>
+    <h1>Veure com funciona un loop en JSON</h1>
+
+    <h3>Propietats</h3>
+    <p id="prop"></p>
+
+    <h3>Valors</h3>
+    <p id="val"></p>
+
+    <script>
+        var myObj = {"name":"Laura", "age":21, "car":null};
+
+        for (x in myObj) {
+            document.getElementById("prop").innerHTML += x + "<br>";
+        }
+
+        for (x in myObj) {
+            document.getElementById("val").innerHTML += myObj[x] + "<br>";
+        }
+    </script>
+
+</body>
+</html>
