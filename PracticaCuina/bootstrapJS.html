@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <title>BOOTSTRAP JS</title>
+    </head>
+    <body>
+        <div class="container">
+        <h1>Carousel JSON</h1>
+        <div id="carouselPlats" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators"></ol>
+            <div class="carousel-inner"></div>
+        </div>
+        <br/>
+        <p id="info"></p>
+        </div>
+        <hr/>
+        <div id="cardsPlats" class="container">
+          <h2>Cards JSON + Bootstrap.</h2>
+          <p id="info2"></p>
+         
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+  
+          function loadFotosCarousel() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                //$("#info").html(this.responseText);
+                var fotos = JSON.parse(this.responseText);
+                for (var i=2; i<fotos.length; i++) {
+                  var num = i-2;
+  
+                  var newLI = $("<li/>");
+                  newLI.attr("data-target","#carouselPlats");
+                  newLI.attr("data-slide-to",num);
+                  if(i==2){
+                    newLI.addClass("active");
+                  }
+                  $("#carouselPlats").children("ol").append(newLI);
+  
+                  var newDIV = $("<div/>");
+                  newDIV.addClass("carousel-item");
+                  if(i==2){
+                    newDIV.addClass("active");
+                  }
+                  var foto = "img/"+fotos[i];
+                  var newIMG = $("<img/>",{src:foto, alt:foto, class:"d-block w-100"})
+                  newDIV.append(newIMG);
+                  $("#carouselPlats").children("div").append(newDIV);
+  
+                }
+              }
+            };
+            xhttp.open("GET", "fotos.php", true);
+            xhttp.send();
+          }
+
+          function loadCardsModels() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                //$("#info2").html(this.responseText);
+                var plats = JSON.parse(this.responseText);
+                var i=0;
+                for (p in plats) {
+
+                  if(i%2==0){
+                    var rowDIV = $("<div/>",{class:"row",});
+                    $("#cardsPlats").append(rowDIV);
+                  }
+                  i++;
+
+                  var id = plats[p].id;
+                  var nom = plats[p].titol;
+                  var foto = "img/"+plats[p].foto;
+                  var preu = plats[p].preu + " €";
+                  var url = "#";//"ingr.php?id="+id;
+
+                  var colDIV = $("<div/>",{class:"col-sm-6"});
+                  var cardDIV = $("<div/>", {class:"card"});
+                  var cardIMG = $("<img/>",{class:"card-img-top", src:foto, alt:"card image", style:"width:100%"});
+                  cardDIV.append(cardIMG);
+                  var cardBody = $("<div/>",{class:"card-body"});
+                  var cardH4 = $("<h4/>",{class:"card-title", text:nom});
+                  var cardP = $("<p/>",{class:"card-text", text:preu});
+                  var cardA = $("<a/>",{class:"btn btn-success", href:url, text:"Veure plat"});
+                  cardBody.append(cardH4, cardP, cardA);
+                  cardDIV.append(cardBody);
+                  //var br = $("<br/>");
+                  colDIV.append(cardDIV);
+                  rowDIV.append(colDIV);
+                }
+              }
+            };
+            xhttp.open("GET", "plats.php", true);
+            xhttp.send();
+          }
+
+          loadCardsModels();
+  
+          loadFotosCarousel();
+  
+        });
+      </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+</html>

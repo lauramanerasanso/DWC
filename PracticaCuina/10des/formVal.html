@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MODAL</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="form-group">
+                        <label>ID del plat</label>
+                        <input id="idInt" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Nom del plat:</label>
+                        <input id="minTit" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Dificultat del plat:</label>
+                        <input id="maxDif" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipus de plat:</label>
+                        <input id="tipusReq" class="form-control" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label>Correu Electrònic: </label>
+                        <input id="email" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Foto del plat:</label>
+                        <input id="foto" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirma la foto del plat:</label>
+                        <input id="fotoConfirm" class="form-control"/>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+        <script>
+            bootstrapValidate('#minTit','min:3:Ha de tenir almenys 3 caràcters');
+            bootstrapValidate('#maxDif','max:10:No pot tenir més de 10 caràcters');
+            bootstrapValidate('#email','email:No has introduït un correu vàlid');
+            bootstrapValidate('#tipusReq','required:Aquest camp és obligatori');
+            bootstrapValidate('#idInt','integer:5:Ha de ser un nombre enter');
+            bootstrapValidate('#foto','matches:#fotoConfirm:La ruta de la foto ha de ser igual');
+            bootstrapValidate('#fotoConfirm','matches:#foto:La ruta de la foto ha de ser igual');
+        </script>
+    </body>
+</html>

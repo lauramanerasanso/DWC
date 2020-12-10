@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODAL</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Plats</h1>
+        <form>
+          <div class="form-group">
+            <select id="selectPlats" class="form-control">
+              <option value="0" disabled active>Plats: </option>
+            </select>
+          </div>
+        </form>
+        <div id="demo1"></div>
+    </div>
+        <div id="editaPlats" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <!-- header modal -->
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalPlats">Edita el plat</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+
+                    <!-- body modal -->
+
+
+                    <div class="modal-body">
+                        <form role="form" name="formEdita" action="edita.php" method="get">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>ID:</label>
+                                    <input id="idp" type="text" class="form-control" placeholder="ID plat" readonly="readonly" name="id">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>NOM:</label>
+                                    <input id="nomp" type="text" class="form-control" placeholder="Nom plat" name="titol">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>DIFICULTAT:</label>
+                                    <input id="difp" type="text" class="form-control" placeholder="Dificultat del plat" name="dificultat">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>TIPUS:</label>
+                                    <input id="tipusp" type="text" class="form-control" placeholder="Tipus de plat" name="tipus">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>PREU:</label>
+                                    <input id="preup" type="text" class="form-control" placeholder="Preu del plat" name="preu">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>FOTOGRAFIA:</label>
+                                    <input id="fotop" type="text" class="form-control" placeholder="Foto de plat" readonly="readonly" name="foto">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- footer modal -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+                        <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script>
+        $(document).ready(function(){
+
+            $("#selectPlats").change(function(){
+                var id = $(this).val();
+                loadModalPlat(id);
+            });
+
+            $('#bSubmit').click(function() {
+                $('form[name="formEdita"]').submit();
+            });
+
+            function loadModalPlat(idPlat) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    //$("#demo1").html(this.responseText);
+                    var item = JSON.parse(this.responseText)[0];
+
+                    $("#idp").val(item.id);
+                    $("#nomp").val(item.titol);
+                    $("#difp").val(item.dificultat);
+                    $("#tipusp").val(item.tipus);
+                    $("#preup").val(item.preu);
+                    $("#fotop").val(item.foto);
+
+                    $("#editaPlats").modal();
+                    }
+                };
+                xhttp.open("GET", "plat.php?id="+idPlat, true);
+                xhttp.send();
+            }
+
+            function loadSelectPlats() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    //$("#demo1").html(this.responseText);
+                    var plats = JSON.parse(this.responseText);
+                    for (c in plats) {
+                        var idPlat = plats[c].id;
+                        var nomPlat = plats[c].titol;
+                        var item = $("<option/>", {value:idPlat, text:nomPlat});
+                        $("#selectPlats").append(item);
+                    }
+                }
+            };
+            xhttp.open("GET", "select.php", true);
+            xhttp.send();
+            }
+
+            loadSelectPlats();
+        });
+    </script>
+</body>
+</html>
+
+<!--
+    Validacio form
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+-->
