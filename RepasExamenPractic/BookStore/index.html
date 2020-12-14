@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Book Store</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+            function Llibre(titol, nPag, category, col, row){
+                    this.titol = titol;
+                    this.nPag = nPag;
+                    this.category = category;
+                    this.col = col;
+                    this.row = row;
+
+                    
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <br>
+                    <div class="form-inline">
+                        <label for="titol">TITLE: </label>
+                        <input type="text" class="form-control" id="titol" placeholder="">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label for="nPag">NUM. PAGES: </label>
+                        <input type="text" class="form-control" id="nPag" placeholder="">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label for="selectCategory">CATEGORY: </label>
+                        <select class="form-control" id="selectCategory"> 
+                            <option value="" disabled active>Choose one...</option>
+                            <option value="classic">CLASSIC</option>
+                            <option value="comedy">COMEDY</option>
+                            <option value="science">SCIENCE</option>
+                            <option value="sports">SPORTS</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label for="colrow">POSITION (COL / ROW): </label>
+                        <select class="form-control" id="selCol"> 
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <select class="form-control" id="selRow"> 
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <div class="row">
+                            <button type="submit" id="b1" class="btn btn-dark form-control">ADD BOOK</button>
+                            <button type="submit" id="b2" class="btn btn-dark form-control">REMOVE BOOK</button>
+                            <button type="submit" id="b3" class="btn btn-dark form-control">PRINT ALL BOOKS</button>
+                            <button type="submit" id="b4" class="btn btn-dark form-control">PRINT LIBRARY</button>
+                            <button type="submit" id="b5" class="btn btn-dark form-control">NUM. BOOKS</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div id="info">
+
+                    </div>
+                </div>
+            </div>
+
+    </div>
+        <script>
+            $(document).ready(function(){
+
+                var llibres = new Array();
+
+                function newBook(){
+                    var titol = $("#titol").val();
+                    var nPag = $("#nPag").val();
+                    var category = $("#selectCategory").val();
+                    var col = $("#selCol").val();
+                    var row = $("#selRow").val();
+
+                    return new Llibre(titol, nPag, category, col, row);
+                }
+
+                function addBook(nBook){
+                    index = llibres.length;
+                    llibres[index] = nBook;
+                }
+
+                function removeBook(nCol, nRow){
+                    for (var i = 0 ; i < llibres.length ; i++){
+                        if ( llibres[i].col==nCol && llibres[i].row==nRow ) {
+                            llibres.splice(i, 1);
+                        }
+                    }
+
+                }
+
+                function printList(){
+                    var txt = "<ul class='list-group'>";
+                    
+                    for (var i = 0 ; i < llibres.length ; i++){
+                        txt += "<li class='list-group-item'>";
+                        txt += "-Títol: "+llibres[i].titol;
+                        txt += " -Num Pàgines: "+llibres[i].nPag;
+                        txt += " -Categoria: "+llibres[i].category;
+                        txt += " -Columna: "+llibres[i].col;
+                        txt += " -Fila: "+llibres[i].row;
+                        txt += "</li>";
+                    }
+                    txt += "</ul>";
+
+                    $("#info").html(txt);
+                }
+
+                function bookPosition(nCol, nRow){
+                    for (var i = 0 ; i < llibres.length ; i++){
+                        if(llibres[i].col==nCol && llibres[i].row==nRow){
+                            return llibres[i];
+                        }
+                    }
+                    return null;
+                }
+
+                function printTable(){
+                    var table = "<table class='table table-bordered' style='text-align : center'> ";
+                    table += "<tr><th>#</th>";
+                    table += "<th>0</th>";
+                    table += "<th>1</th>";
+                    table += "<th>2</th>";
+                    table += "<th>3</th></tr>";
+                    for (var rw = 0 ; rw < 4 ; rw++){
+                        table += "<tr><th>"+rw+"</th>";
+                        for (var cl = 0 ; cl < 4 ; cl++){
+                            book = bookPosition(cl, rw);
+                            if(book!=null){
+                                console.log("hola4");
+                                txt = "<img src='"+book.category+".png' width='50px' />"
+                                txt += "<ul class='list-group'>";
+                                txt += "<li class='list-group-item'>"+book.titol+"</li>";
+                                txt += "<li class='list-group-item'>"+book.category+"</li>";
+                                txt += "<li class='list-group-item'>"+book.nPag+" pag.</li>";
+                                txt += "</ul>";
+                                table +="<td>"+txt+"</td>";
+
+                            }
+                            else {
+                                table+="<td><img src='empty.png' width='50px' /></td>";
+                            }
+                        }
+                        table += "</tr>";
+                    }
+                    table += "</table>";
+                    $("#info").html(table);
+                }
+
+                $("#b1").click(function(){
+                    nBook = newBook();
+                    addBook(nBook);
+                    console.log(llibres);
+                });
+                
+                $("#b2").click(function(){
+                    var nCol = $("#selCol").val();
+                    var nRow = $("#selRow").val();
+                    removeBook(nCol, nRow);
+                    console.log(llibres);
+                });
+
+                $("#b3").click(function(){
+                    printList();
+                });
+
+                $("#b4").click(function(){
+                    printTable();
+                });
+
+                $("#b5").click(function(){
+                    alert("Hi ha "+ llibres.length +" llibres.");
+                })
+
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+<!--
+    1.- HTML
+    3.- Funcions
+    4.- Array
+    2.- Classe Llibre
+-->

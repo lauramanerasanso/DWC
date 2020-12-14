@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Book Store</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+        </script>
+        <style>
+            .red {
+            color:red;
+            }
+            .green {
+            color:green;
+            }
+            .blue {
+            color:blue;
+            }
+            .courier {
+            font-family:Courier;
+            }
+            .arial {
+            font-family:Arial;
+            }
+            .verdana {
+                font-family:Verdana;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                        <fieldset><legend>EDIT STYLES</legend>
+                            <input class="form-control" type="text"  id="txt"/>
+                            <br>
+                            FONT:
+                            <select class="form-control" id="selfont">
+                                    <option value="courier">Courier</option>
+                                    <option value="verdana">Verdana</option>
+                                    <option value="arial">Arial</option>
+                            </select>
+                            <br>
+                            COLOR:
+                            <select class="form-control" id="selcolor">
+                                    <option value="red">Red</option>
+                                    <option value="green">Green</option>
+                                    <option value="blue">Blue</option>
+                            </select> 
+                            <br>
+                            SIZE:
+                            <input class="form-control" type="text" value="10" id="txtsize" size="4"/>
+                            <br>
+                            <button class="btn btn-success form-control" id="b1">APPLY STYLES</button>
+                            <button class="btn btn-dark form-control" id="b2">RESET STYLES</button>
+                        </fieldset>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <p id="demo">
+
+                    </p>
+                </div>
+            </div>
+
+    </div>
+        <script>
+            $(document).ready(function(){
+
+                function applyStyle(){
+                    var txt = $("#txt").val();
+                    $("#demo").text(txt);
+                    var color = $("#selcolor").val();
+                    switch(color){
+                        case "red":
+                            $("#demo").addClass("red");
+                            break;
+                        case "green":
+                            $("#demo").addClass("green");
+                            break;
+                        case "blue":
+                            $("#demo").addClass("blue");
+                            break;
+                    }
+
+                    var font = $("#selfont").val();
+                    switch(font){
+                        case "courier":
+                            $("#demo").addClass("red");
+                            break;
+                        case "verdana":
+                            $("#demo").addClass("green");
+                            break;
+                        case "arial":
+                            $("#demo").addClass("blue");
+                            break;
+                    }
+                    var size= $("#txtsize").val()+"px";
+			        $("#demo").css("fontSize", size);
+                }
+
+                function removeStyle(){
+                    $("#demo").removeClass("red");
+                    $("#demo").removeClass("green");
+                    $("#demo").removeClass("blue");
+                    $("#demo").removeClass("arial");
+                    $("#demo").removeClass("courier");
+                    $("#demo").removeClass("verdana");
+                    $("#demo").css("fontSize", "10px");
+                }
+
+                $("#b1").click(function(){
+                    removeStyle();
+                    applyStyle();
+                });
+
+                $("#b2").click(function(){
+                    removeStyle();
+                    console.log("hola");
+                    var txt = $("#txt").val();
+                    $("#demo").text(txt);
+                });
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    </body>
+</html>
