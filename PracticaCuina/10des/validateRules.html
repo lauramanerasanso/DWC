@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORMES DE VALIDACIÓ DE FORMULARI JS</title>
+</head>
+<body>
+    <p>
+        MIN:
+        bootstrapValidate('#input', 'min:20:Enter at least 20 characters!');
+    </p>
+
+    <p>
+        MAX:
+        bootstrapValidate('#input', 'max:42:Please dont enter more than 42 characters!');
+    </p>
+
+    <p>
+        EMAIL:
+        bootstrapValidate('#input', 'email:Enter a valid email address');
+    </p>
+
+    <p>
+        REQUIRED:
+        bootstrapValidate('#input', 'required:Please fill out this field!');
+    </p>
+
+    <p>
+        URL:
+        bootstrapValidate('#input', 'url:Please enter a valid URL!');
+    </p>
+
+    <p>
+        INTEGER:
+        bootstrapValidate('#input', 'integer:Please fill out this input field!');
+    </p>
+
+    <p>
+        NUMERIC:
+        bootstrapValidate('#input', 'numeric:Please only enter numeric characters!');
+    </p>
+
+    <p>
+        ALPHANUM: 
+        bootstrapValidate('#input', 'alphanum:Please only enter alphanumeric characters!');
+    </p>
+
+    <p>
+        ISO8601:
+        bootstrapValidate('#input', 'ISO8601:Your input does not match the wanted format YYYY-MM-DD');
+    </p>
+
+    <p>
+        REGULAR EXPRESSION:
+        bootstrapValidate('#input', 'regex:^[a-z]+$:Please fulfill my regex');
+    </p>
+
+    <p>
+        DIVISIBLE:
+        bootstrapValidate('#input', 'divisible:15:15 is not divisible by 4.');
+    </p>
+
+    <p>
+        CONTAINS:
+        bootstrapValidate('#input', 'contains:something:Your text needs to contain something!');
+    </p>
+
+    <p>
+        STARTS WITH:
+        bootstrapValidate('#input', 'startsWith:+49:Your phone number needs to start with +49');
+    </p>
+
+    <p>
+        ENDS WITH:
+        bootstrapValidate('#input', 'endsWith:UCV:Your Input needs to end with UCV');
+    </p>
+
+    <p>
+        MATCHES:
+        bootstrapValidate('#input', 'matches:#passwordConfirm:Your passwords should match');
+    </p>
+
+    <p>
+        ALPHA:
+        bootstrapValidate('#input', 'alpha:You can only input alphabetic characters');
+    </p>
+
+    <p>
+        IN ARRAY:
+        bootstrapValidate('#input', 'inArray:(ABC, DEF, GHI):Your input must be any of (ABC, DEF, GHI)');
+    </p>
+
+</body>
+</html>
