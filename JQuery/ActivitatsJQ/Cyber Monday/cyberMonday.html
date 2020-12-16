@@ -1,220 +1,179 @@
 <!DOCTYPE html>
+<html>
+
     <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, user-scalable=no"/>
-        <title>CYBER MONDAY - LMS</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>CIBERMONDAY</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         <script>
-  
-            //TABS
-            
-              $( function() {
-                      $( "#tabs" ).tabs();
-              } );
-              
-            
+
             // FUNCIONS CATEGORIES
-            
             categories = new Array();
-            
-            function addCategory(c){
+            function addCategory(c) {
                 numC = categories.length;
                 categories[numC] = c;
             }
-            
-            function changeCategory(cNew, i){
+            function changeCategory(cNew, i) {
                 categories[i] = cNew;
             }
-            
-            function removeCategory(i){
+            function removeCategory(i) {
                 categories.splice(i, 1);
             }
-            
-            function numCategories(){
+            function numCategories() {
                 return categories.length;
             }
-            
             // LOAD CATEGORIES
-            
             addCategory("ELECTRONICS");
             addCategory("HOME");
             addCategory("FOOD");
             addCategory("HEALTH");
             addCategory("SPORTS");
-            
-            
+
             // FUNCIONS GUI - CATEGORIES
-            
-            function updateSelectCategories(){
-            
-                $("#cs1").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#cs1").append(item);
-                
-                for(i=0; i<categories.length; i++){
+            function updateSelectCategories() {
+                $("#selectCategories").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                $("#selectCategories").append(item);
+                for (i = 0; i < categories.length; i++) {
                     item = $("<option></option>");
-                    item.attr("value",categories[i]);
+                    item.attr("value", categories[i]);
                     item.text(categories[i]);
-                    $("#cs1").append(item);
+                    $("#selectCategories").append(item);
                 }
             }
-            
-            
-            function updateSelectCategoriesProd(){
-            
-                $("#ps1").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#ps1").append(item);
-                
-                for(i=0; i<categories.length; i++){
+            function updateSelectCategoriesProd() {
+                $("#selectProductes").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                $("#selectProductes").append(item);
+                for (i = 0; i < categories.length; i++) {
                     item = $("<option></option>");
-                    item.attr("value",categories[i]);
+                    item.attr("value", categories[i]);
                     item.text(categories[i]);
-                    $("#ps1").append(item);
+                    $("#selectProductes").append(item);
                 }
             }
-            
-            function updateSelectCategoriesBuy(){
-            
-                $("#bs0").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#bs0").append(item);
-                
-                for(i=0; i<categories.length; i++){
+            function updateSelectCategoriesBuy() {
+                $("#selectCatCompra").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                $("#selectCatCompra").append(item);
+                for (i = 0; i < categories.length; i++) {
                     item = $("<option></option>");
-                    item.attr("value",categories[i]);
+                    item.attr("value", categories[i]);
                     item.text(categories[i]);
-                    $("#bs0").append(item);
+                    $("#selectCatCompra").append(item);
                 }
             }
-            
-            function printAllCategories(){
-                $("#catlist").empty();
-                for(i=0; i<categories.length; i++){
+            function printAllCategories() {
+                $("#llistaCat").empty();
+                for (i = 0; i < categories.length; i++) {
                     item = $("<li></li>");
                     item.text(categories[i]);
-                    $("#catlist").append(item);
+                    $("#llistaCat").append(item);
                 }
             }
-            
             // FUNCIONS PRODUCTES
-            
             productes = new Array();
-            
-            function Product(codi, nom, preu, cat){
+            function Product(codi, nom, preu, cat) {
                 this.codi = codi;
                 this.nom = nom;
                 this.preu = preu;
                 this.categoria = cat;
             }
-            
-            function addProduct(p){
+            function addProduct(p) {
                 numP = productes.length;
                 productes[numP] = p;
             }
-            
-            function changeProduct(pNew, i){
+            function changeProduct(pNew, i) {
                 productes[i].codi = pNew.codi;
                 productes[i].nom = pNew.nom;
                 productes[i].preu = pNew.preu;
                 productes[i].categoria = pNew.categoria;
             }
-            
-            function getProduct(codiP){
-                for(var i=0; i<productes.length; i++){
-                    if(productes[i].codi == codiP){
+            function getProduct(codiP) {
+                for (var i = 0; i < productes.length; i++) {
+                    if (productes[i].codi == codiP) {
                         return productes[i];
                     }
                 }
             }
-            
-            function removeProduct(i){
+            function removeProduct(i) {
                 productes.splice(i, 1);
             }
-            
-            function numProductes(){
+            function numProductes() {
                 return productes.length;
             }
-            
-            
-            function updateSelectProducts(){
-            
-                $("#ps2").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#ps2").append(item);
-                
-                for(i=0; i<productes.length; i++){
+            function updateSelectProducts() {
+                $("#selectProductes").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                $("#selectProductes").append(item);
+                for (i = 0; i < productes.length; i++) {
                     item = $("<option></option>");
-                    item.attr("value",productes[i].codi);
-                    item.text(productes[i].codi+" - "+productes[i].nom);
-                    $("#ps2").append(item);
+                    item.attr("value", productes[i].codi);
+                    item.text(productes[i].codi + " - " + productes[i].nom);
+                    $("#selectProductes").append(item);
                 }
             }
-            
-            function updateSelectProductsCompra(){
-            
-                $("#bs1").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#bs1").append(item);
-                
-                for(i=0; i<productes.length; i++){
+            function updateSelectProductsCompra() {
+                $("#selectProdCompra").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                //item = $("<option></option>");
+                //item.attr("value", "0");
+                //item.text("Select one");
+                $("#selectProdCompra").append(item);
+                for (i = 0; i < productes.length; i++) {
                     item = $("<option></option>");
-                    item.attr("value",productes[i].codi);
-                    item.text(productes[i].codi+" - "+productes[i].nom);
-                    $("#bs1").append(item);
+                    item.attr("value", productes[i].codi);
+                    item.text(productes[i].codi + " - " + productes[i].nom);
+                    $("#selectProdCompra").append(item);
                 }
             }
-            
-            function updateSelectProductsCompraFilter(cat){
-                
-                $("#bs1").empty();
-                
-                item = $("<option></option>");
-                item.attr("value","0");
-                item.text("Select one");
-                $("#bs1").append(item);
-                
-                for(i=0; i<productes.length; i++){
-                    if(productes[i].categoria == cat){
+            function updateSelectProductsCompraFilter(cat) {
+                $("#selectProdCompra").empty();
+                item = "<option active disabled> Tria'n un... </option>";
+                $("#selectProdCompra").append(item);
+                for (i = 0; i < productes.length; i++) {
+                    if (productes[i].categoria == cat) {
                         item = $("<option></option>");
-                        item.attr("value",productes[i].codi);
-                        item.text(productes[i].codi+" - "+productes[i].nom);
-                        $("#bs1").append(item);
+                        item.attr("value", productes[i].codi);
+                        item.text(productes[i].codi + " - " + productes[i].nom);
+                        $("#selectProdCompra").append(item);
                     }
                 }
             }
-            
-            function printAllProducts(){
-                $("#tbprods").empty();
-                for(i=0; i<productes.length; i++){
+            function printAllProducts() {
+                $("#taula_prod").empty();
+                prodtable = "<table class='table table-bordered'> <thead> <th scope='col'>CODI</th> <th scope='col'>PRODUCTE</th>";
+                prodtable += "<th scope='col'>PREU</th> <th scope='col'>CATEGORIA</th> </thead> <tbody>";
+
+                for (i = 0; i < productes.length; i++) {
+
+                    prodtable += "<tr>";
+                    prodtable += "<td scope='row'>" + productes[i].codi + "</td>";
+                    prodtable += "<td>" + productes[i].nom + "</td>";
+                    prodtable += "<td>" + productes[i].preu + "</td>";
+                    prodtable += "<td>" + productes[i].categoria + "</td>";
+                    prodtable += "</tr>";
+                    /*
                     tr = $("<tr></tr>");
-                    td1 = $("<td>"+productes[i].codi+"</td>");
-                    td2 = $("<td>"+productes[i].nom+"</td>");
-                    td3 = $("<td>"+productes[i].preu+"</td>");
-                    td4 = $("<td>"+productes[i].categoria+"</td>");
-                    $(tr).append(td1, td2, td3, td4);
-                    $("#tbprods").append(tr);
+                    td1 = $("<td scope='row'>" + productes[i].codi + "</td>");
+                    td2 = $("<td>" + productes[i].nom + "</td>");
+                    td3 = $("<td>" + productes[i].preu + "</td>");
+                    td4 = $("<td>" + productes[i].categoria + "</td>");
+                    $(tr).append(td1, td2, td3, td4);*/
+                    //$("#taula_prod").append(tr);
+
                 }
+
+                prodtable += "</tbody></table>";
+                $("#taula_prod").html(prodtable);
             }
-            
+
+
             //LOAD PRODUCTS
-            
             addProduct(new Product(2734, "HARD DISK", 120.75, "ELECTRONICS"));
             addProduct(new Product(3587, "MEMORY SDRAM 8GB", 70.55, "ELECTRONICS"));
             addProduct(new Product(9856, "INKJET PRINTER", 310.25, "ELECTRONICS"));
@@ -224,274 +183,174 @@
             addProduct(new Product(1729, "NIKE TRAINERS", 95.95, "SPORTS"));
             addProduct(new Product(3917, "CHANDAL ADIDAS", 105.59, "SPORTS"));
             addProduct(new Product(1243, "TABLE 100X100", 35.99, "HOME"));
-            
+
+
             // FUNCIONS COMPRA
-            
             compres = new Array();
-            
-            function Compra(codi, quant){
+            function Compra(codi, quant) {
                 this.codi = codi;
                 this.quant = parseInt(quant);
             }
-            
-            function addBuy(c){
+            function addBuy(c) {
                 numB = compres.length;
-               exist = false;
-                for(var i=0; i< numB; i++){
-                    if(compres[i].codi == c.codi){
+                exist = false;
+                for (var i = 0; i < numB; i++) {
+                    if (compres[i].codi == c.codi) {
                         compres[i].quant += parseInt(c.quant);
                         exist = true;
                     }
                 }
-                if(!exist){
+                if (!exist) {
                     compres[numB] = c;
                 }
             }
-            
-            function removeBuy(codiP){
+            function removeBuy(codiP) {
                 index = getPosition(codiP);
                 compres.splice(index, 1);
             }
-            
-            
-            function getPosition(codiP){
-                for(var i=0; i< compres.length; i++){
-                    if(compres[i].codi == codiP){
+            function getPosition(codiP) {
+                for (var i = 0; i < compres.length; i++) {
+                    if (compres[i].codi == codiP) {
                         return i;
                     }
                 }
                 return -1;
             }
-            
-            function printAllBuys(){
-                $("#tbbuys").empty();
+            function printAllBuys() {
+                $("#taula_compra").empty();
                 total = 0.0;
-                for(i=0; i<compres.length; i++){
+
+                ctable = "<table class='table table-bordered'> <thead> <th scope='col'>CODI</th> <th scope='col'>PRODUCTE</th>";
+                ctable += "<th scope='col'>PREU</th> <th scope='col'>CATEGORIA</th> <th scope='col'>QUANTITAT</th> <th scope='col'>SUBTOTAL</th>"
+                ctable += "</thead> </tbody>";
+                //$("#taula_compra").append(ctable);
+                for (i = 0; i < compres.length; i++) {
                     codiP = compres[i].codi;
                     product = getProduct(codiP);
+                    ctable += "<tr>";
+                    ctable += "<td>" + compres[i].codi + "</td>";
+                    ctable += "<td>" + product.nom + "</td>";
+                    ctable += "<td>" + product.preu + "</td>";
+                    ctable += "<td>" + product.categoria + "</td>";
+                    ctable += "<td>" + compres[i].quant + "</td>";
+
+                    /*
                     tr = $("<tr></tr>");
-                    td1 = $("<td>"+compres[i].codi+"</td>");
-                    td2 = $("<td>"+product.nom+"</td>");
-                    td3 = $("<td>"+product.preu+"</td>");
-                    td4 = $("<td>"+product.categoria+"</td>");
-                    td5 = $("<td>"+compres[i].quant+"</td>");
-                    subTotal = parseFloat(product.preu)*parseInt(compres[i].quant);
+                    td1 = $("<td>" + compres[i].codi + "</td>");
+                    td2 = $("<td>" + product.nom + "</td>");
+                    td3 = $("<td>" + product.preu + "</td>");
+                    td4 = $("<td>" + product.categoria + "</td>");
+                    td5 = $("<td>" + compres[i].quant + "</td>");
+                    */
+                    subTotal = parseFloat(product.preu) * parseInt(compres[i].quant);
                     total += subTotal;
-                    td6 = $("<td>"+subTotal+"</td>");
+                    ctable += "<td>" + subTotal + "</td>";
+                    ctable += "</tr>";
+                    /*
+                    td6 = $("<td>" + subTotal + "</td>");
                     $(tr).append(td1, td2, td3, td4, td5, td6);
-                    $("#tbbuys").append(tr);
+                    $("#taula_compra").append(tr);
+                    */
+
                 }
-                
+
+                ctable += "<tr>";
+                ctable += "<td colspan='5'>TOTAL</td>";
+                ctable += "<td>" + total + "</td>";
+                ctable += "</tr>";
+                /*
                 trtotal = $("<tr></tr>");
                 tdt1 = $("<td colspan='5'>TOTAL</td>");
-                tdt2 = $("<td>"+total+"</td>");
+                tdt2 = $("<td>" + total + "</td>");
                 $(trtotal).append(tdt1, tdt2);
-                $("#tbbuys").append(trtotal);
-                
-                
-                desc = parseFloat($("#bt1").val());
-                descompte = total*desc/100;
+                $("#taula_compra").append(trtotal);
+                */
+                desc = parseFloat($("#inputDescompte").val());
+                descompte = total * desc / 100;
+
+                ctable += "<tr>";
+                ctable += "<td colspan='5'>DESCOMPTE ( " + desc + "% )</td>";
+                ctable += "<td>" + descompte + "</td>";
+                ctable += "</tr>";
+                /*
                 trdesc = $("<tr></tr>");
-                tddesc1 = $("<td colspan='5'>DESCOMPTE ("+desc+"%)</td>");
-                tddesc2 = $("<td>"+descompte+"</td>");
+                tddesc1 = $("<td colspan='5'>DESCOMPTE (" + desc + "%)</td>");
+                tddesc2 = $("<td>" + descompte + "</td>");
                 $(trdesc).append(tddesc1, tddesc2);
-                $("#tbbuys").append(trdesc);
-                
-                preufinal = total-descompte;
+                $("#taula_compra").append(trdesc);
+                */
+                preufinal = total - descompte;
+
+                ctable += "<tr>";
+                ctable += "<td colspan='5'>TOTAL - DESCOMPTE</td>";
+                ctable += "<td>" + preufinal + "</td>";
+                ctable += "</tr>";
+                /*
                 trtotal = $("<tr></tr>");
                 tdt1 = $("<td colspan='5'>TOTAL - DESCOMPTE</td>");
-                tdt2 = $("<td>"+(preufinal)+"</td>");
+                tdt2 = $("<td>" + (preufinal) + "</td>");
                 $(trtotal).append(tdt1, tdt2);
-                $("#tbbuys").append(trtotal);
-                
+                $("#taula_compra").append(trtotal);
+                */
+                ctable += "</tbody></table>";
+                $("#taula_compra").html(ctable);
             }
-            
-            
-            // FUNCIONS GUI - BUTTONS
-            
-              $(document).ready(function(){
-              
-              printAllCategories();
-              printAllProducts();
-              printAllBuys();
-              updateSelectCategories();
-              updateSelectCategoriesProd();
-              updateSelectProducts();
-              updateSelectProductsCompra();
-              updateSelectCategoriesBuy();
-              
-              $("#ct1").val("");
-          
-              //ADD CATEGORY
-                $("#cb1").click(function(){
-                  cat = $("#ct1").val();
-                  addCategory(cat);
-                  printAllCategories();
-                  updateSelectCategories();
-                  updateSelectCategoriesProd();
-                });
-                
-              //EDIT CATEGORY 
-                $("#cb2").click(function(){
-                    index = $("#cs1 option:selected").index();
-                    txt = $("#ct1").val();
-                    changeCategory(txt, index-1);
-                    printAllCategories();
-                  updateSelectCategories();
-                  updateSelectCategoriesProd();
-                });
-                
-              //DELETE CATEGORY
-                $("#cb3").click(function(){
-                    index = $("#cs1 option:selected").index();
-                    removeCategory(index-1);
-                    printAllCategories();
-                  updateSelectCategories();
-                  updateSelectCategoriesProd();
-                    
-                });
-                
-                //CHANGE CATEGORY
-                $("#cs1").change(function(){
-                    index = $("#cs1 option:selected").index();
-                    if(index>0){
-                      txt = $("#cs1").val();
-                      $("#ct1").val(txt);
-                  }
-                });
-                
-                
-                //ADD PRODUCT
-                $("#pb1").click(function(){
-                  pCodi = $("#pt1").val();
-                  pNom = $("#pt2").val();
-                  pPreu = $("#pt3").val();
-                  pCat = $("#ps1").val();
-                  p = new Product(pCodi, pNom, pPreu, pCat);
-                  addProduct(p);
-                  printAllProducts();
-                  updateSelectProducts();
-                  updateSelectProductsCompra();
-                });
-                
-                //EDIT PRODUCT 
-                $("#pb2").click(function(){
-                    index = $("#ps2 option:selected").index();
-                    alert(index);
-                    pCodi = $("#pt1").val();
-                    pNom = $("#pt2").val();
-                    pPreu = $("#pt3").val();
-                    pCat = $("#ps1").val();
-                    p = new Product(pCodi, pNom, pPreu, pCat);
-                    changeProduct(p, index-1);
-                    printAllProducts();
-                    updateSelectProducts();
-                    updateSelectProductsCompra();
-                });
-                
-                
-                //CHANGE PRODUCT
-                $("#ps2").change(function(){
-                    index = $("#ps2 option:selected").index();
-                    if(index>0){
-                        p = productes[index-1];
-                        $("#pt1").val(p.codi);
-                       $("#pt2").val(p.nom);
-                       $("#pt3").val(p.preu);
-                       $("#ps1").val(p.categoria);
-                    }
-                });
-                
-                //DELETE PRODUCT
-                $("#pb3").click(function(){
-                    index = $("#ps2 option:selected").index();
-                    removeProduct(index-1);
-                    printAllProducts();
-                    updateSelectProducts();
-                    updateSelectProductsCompra();
-                });
-                
-                //CHANGE CATEGORY PRODUCTS
-                $("#bs0").change(function(){
-                    index = $("#bs0 option:selected").index();
-                    if(index>0){
-                        cat = $("#bs0").val();
-                        updateSelectProductsCompraFilter(cat);
-                    }
-                });
-                
-                
-                //ADD BUY
-                $("#bb1").click(function(){
-                    codiP = $("#bs1").val();
-                    quants = $("#bs2").val();
-                    newC = new Compra(codiP, quants);
-                    addBuy(newC);
-                    printAllBuys();
-                });
-                
-                //REMOVE BUY
-                $("#bb2").click(function(){
-                    codiP = $("#bs1").val();
-                    removeBuy(codiP);
-                    printAllBuys();
-                });
-                
-              
-              //APPLY DESCOMPTE
-                $("#bb3").click(function(){
-                    printAllBuys();
-                });
-                
-                
-              });
-           
-            
-            
-          
-            </script>
+
+
+        </script>
+
     </head>
+
     <body>
+
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#categoria" role="tab" aria-controls="categoria" aria-selected="true">CATEGORIA</a>
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#categoria" role="tab"
+                    aria-controls="categoria" aria-selected="true">CATEGORIA</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#producte" role="tab" aria-controls="producte" aria-selected="false">PRODUCTE</a>
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#producte" role="tab" aria-controls="producte"
+                    aria-selected="false">PRODUCTE</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#compra" role="tab" aria-controls="compra" aria-selected="false">COMPRA</a>
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#compra" role="tab" aria-controls="compra"
+                    aria-selected="false">COMPRA</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+
+            <!--TAB CATEGORIES-->
             <div class="tab-pane fade show active" id="categoria" role="tabpanel" aria-labelledby="categoria-tab">
                 <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-inline">
-                                    <label for="inputCategoria">CATEGORIA: </label>
-                                    <input type="text" class="form-control" id="inputCategoria" placeholder="">
-                                    <button type="submit" id="b1" class="btn btn-dark form-control">ADD</button>
-                                </div>
-                                <div class="form-inline">
-                                    <select class="form-control" id="selectCategories"> 
-                                    </select>
-                                    <button type="submit" id="b2" class="btn btn-dark form-control">SAVE</button>
-                                    <button type="submit" id="b3" class="btn btn-dark form-control">DELETE</button>
-                                </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-inline">
+                                <label for="inputCategoria">CATEGORIA: </label>
+                                <input type="text" class="form-control" id="inputCategoria" placeholder="">
+                                <button type="submit" id="cb1" class="btn btn-dark form-control">ADD</button>
+                            </div>
+                            <div class="form-inline">
+                                <select class="form-control" id="selectCategories">
+                                </select>
+                                <button type="submit" id="cb2" class="btn btn-dark form-control">SAVE</button>
+                                <button type="submit" id="cb3" class="btn btn-dark form-control">DELETE</button>
                             </div>
                         </div>
-                        <hr>
+                    </div>
+                    <hr>
                     <div id="info" class="row">
-
+                        <ul id="llistaCat"></ul>
                     </div>
                 </div>
             </div>
+
+            <!--TAB PRODUCTES-->
             <div class="tab-pane fade" id="producte" role="tabpanel" aria-labelledby="producte-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            PRODUCTE:<hr>
+                            PRODUCTE:
+                            <hr>
                             <label for="inputCodi">CODI: </label>
                             <input type="text" class="form-control" id="inputCodi" placeholder="">
                         </div>
@@ -511,25 +370,25 @@
                     <div class="row">
                         <div class="col">
                             <label for="selectCat">CATEGORIA: </label>
-                            <select class="form-control" id="selectCat"> 
+                            <select class="form-control" id="selectCat">
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <button type="submit" id="b4" class="btn btn-dark form-control">ADD</button>
+                            <button type="submit" id="pb1" class="btn btn-dark form-control">ADD</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <select class="form-control" id="selectProductes"> 
+                            <select class="form-control" id="selectProductes">
                             </select>
                         </div>
                         <div class="col-3">
-                            <button type="submit" id="b5" class="btn btn-dark form-control">SAVE</button>
+                            <button type="submit" id="pb2" class="btn btn-dark form-control">SAVE</button>
                         </div>
                         <div class="col-3">
-                            <button type="submit" id="b6" class="btn btn-dark form-control">DELETE</button>
+                            <button type="submit" id="pb3" class="btn btn-dark form-control">DELETE</button>
                         </div>
                     </div>
                     <div class="row" id="taula_prod">
@@ -537,26 +396,28 @@
                     </div>
                 </div>
             </div>
+
+            <!--TAB COMPRA-->
             <div class="tab-pane fade" id="compra" role="tabpanel" aria-labelledby="compra-tab">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <label for="selectCatCompra">CATEGORIA: </label>
-                            <select class="form-control" id="selectCatCompra"> 
+                            <select class="form-control" id="selectCatCompra">
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="selectProdCompra">PRODUCTE: </label>
-                            <select class="form-control" id="selectProdCompra"> 
+                            <select class="form-control" id="selectProdCompra">
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="selQuant">QUANTITAT: </label>
-                            <select class="form-control" id="selQuant"> 
+                            <select class="form-control" id="selQuant">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -567,17 +428,17 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <button type="submit" id="b7" class="btn btn-dark form-control">ADD</button>
+                            <button type="submit" id="bb1" class="btn btn-dark form-control">ADD</button>
                         </div>
                         <div class="col-6">
-                            <button type="submit" id="b8" class="btn btn-dark form-control">REMOVE ALL</button>
+                            <button type="submit" id="bb2" class="btn btn-dark form-control">REMOVE ALL</button>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label for="inputDesc">DESCOMPTE (%):</label>
-                            <input type="text" class="form-control" id="inputDesc" placeholder="">
-                            <button type="submit" id="b9" class="btn btn-dark form-control">APPLY</button>
+                            <label for="inputDescompte">DESCOMPTE (%):</label>
+                            <input type="text" class="form-control" id="inputDescompte" placeholder="">
+                            <button type="submit" id="bb3" class="btn btn-dark form-control">APPLY</button>
                         </div>
                     </div>
                     <div class="row" id="taula_compra">
@@ -586,268 +447,153 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!-- FUNCIONS BUTTONS -->
         <script>
-            
+            $(document).ready(function () {
+                printAllCategories();
+                printAllProducts();
+                printAllBuys();
+                updateSelectCategories();
+                updateSelectCategoriesProd();
+                updateSelectProducts();
+                updateSelectProductsCompra();
+                updateSelectCategoriesBuy();
 
-           /* $(document).ready(function(){
-                var categories = ["FOOD", "DECOR", "SPORT"];
-                var productes = new Array();
-                
-                
-                function Product(id, nom, preu, categoria){
-                    this.id = id;
-                    this.nom = nom;
-                    this.preu = preu;
-                    this.categoria = categoria;
-                }
+                $("#inputCategoria").val("");
 
-                function addProduct(prod){
-                    index = productes.length;
-                    productes[index] = prod;
-                }
-
-                addProduct(new Product(1, "Spaghetti", 1.99, "FOOD"));
-                addProduct(new Product(2, "Làmpada de peu", 45.99, "DECOR"));
-                addProduct(new Product(3, "Deportives Nike", 85.99, "SPORT"));
-                
-                function changeProduct(newProd, i){
-                    productes[i].id = newProd.id;
-                    productes[i].nom = newProd.nom;
-                    productes[i].preu = newProd.preu;
-                    productes[i].categoria = newProd.categoria;
-                }
-
-                function getProduct(idProd){
-                    for(var i=0; i<productes.length; i++){
-                        if(productes[i].id == idProd){
-                            return productes[i];
-                        }
-                    }
-                }
-                function removeProduct(i){
-                    productes.splice(i, 1);
-                }
-                
-                function numProductes(){
-                    return productes.length;
-                }
-
-                function updateSelectProducts(){
-  
-                    $("#selectProductes").empty();
-                    
-                    item = $("<option></option>");
-                    item.attr("value","0");
-                    item.text("Tria'n un");
-                    $("#selectProductes").append(item);
-                    
-                    for(i=0; i<productes.length; i++){
-                        item = $("<option></option>");
-                        item.attr("value",productes[i].codi);
-                        item.text(productes[i].id+" - "+productes[i].nom);
-                        $("#selectProductes").append(item);
-                    }
-                }
-
-                function updateSelectProductsCompra(){
-  
-                    $("#bs1").empty();
-                    
-                    item = $("<option></option>");
-                    item.attr("value","0");
-                    item.text("Select one");
-                    $("#bs1").append(item);
-                    
-                    for(i=0; i<productes.length; i++){
-                        item = $("<option></option>");
-                        item.attr("value",productes[i].codi);
-                        item.text(productes[i].codi+" - "+productes[i].nom);
-                        $("#bs1").append(item);
-                    }
-                }
-
-                function updateSelectProductsCompraFilter(cat){
-                
-                    $("#bs1").empty();
-                    
-                    item = $("<option></option>");
-                    item.attr("value","0");
-                    item.text("Select one");
-                    $("#bs1").append(item);
-                    
-                    for(i=0; i<productes.length; i++){
-                        if(productes[i].categoria == cat){
-                            item = $("<option></option>");
-                            item.attr("value",productes[i].codi);
-                            item.text(productes[i].codi+" - "+productes[i].nom);
-                            $("#bs1").append(item);
-                        }
-                    }
-                }
-
-                function printAllProducts(){
-                    $("#taula_prod").empty();
-                    for(i=0; i<productes.length; i++){
-                        tr = $("<tr></tr>");
-                        td1 = $("<td>"+productes[i].codi+"</td>");
-                        td2 = $("<td>"+productes[i].nom+"</td>");
-                        td3 = $("<td>"+productes[i].preu+"</td>");
-                        td4 = $("<td>"+productes[i].categoria+"</td>");
-                        $(tr).append(td1, td2, td3, td4);
-                        $("#taula_prod").append(tr);
-                    }
-                }
-
-                function printLlistaCat(){
-                    var txt = "<ul>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                        txt += "<li>" + categories[i] + "</li>";
-                    }
-                    txt += "</ul>";
-                    return txt;
-                }
-                var txt = printLlistaCat();
-                $("#info").html(txt);
-                
-                function printSelectCat(){
-                    var optiontxt = "<option active disabled> Tria'n una... </option>";
-                    for(var i = 0 ; i < categories.length ; i++){
-                            optiontxt += "<option>" + categories[i] + "</option>";
-                    }
-                    return optiontxt;
-                }
-                var optiontxt = printSelectCat();
-                $("#selectCategories").html(optiontxt);
-                $("#selectCat").html(optiontxt);
-
-                function printSelectProd(){
-                    var prodtxt = "<option active disabled> Tria'n un... </option>";
-                    for(var i = 0 ; i < productes.length ; i++){
-                            prodtxt += "<option value=''"+productes[i].codi+"'' >" + productes[i].codi +" - "+ productes[i].nom+ "</option>";
-                    }
-                    return prodtxt;
-                }
-                var prodtxt = printSelectProd();
-                $("#selectProductes").html(prodtxt);
-
-                function printTableProd(){
-                    var prodtable = "<table class='table table-bordered'> <thead> <th scope='col'>CODI</th> <th scope='col'>PRODUCTE</th>";
-                    prodtable += "<th scope='col'>PREU</th> <th scope='col'>CATEGORIA</th> </thead> </tbody>";
-                    for(var i = 0 ; i < productes.length ; i++){
-                        prodtable += "<tr><td scope='row'>" + productes[i].id + "</td>";
-                        prodtable += "<td>" + productes[i].nom + "</td>";
-                        prodtable += "<td>" + productes[i].preu + "</td>";
-                        prodtable += "<td>" + productes[i].categoria + "</td></tr>";
-                    }
-                    prodtable += "</tbody></table>";
-                    return prodtable;
-                }
-                var prodtable = printTableProd();
-                $("#taula_prod").html(prodtable);
-
-                
-
-
-                $("#b1").click(function(){
-
-                    var newItem = $("#inputCategoria").val();
-
-                    categories.push(newItem);
-                    $("#inputCategoria").val("");
-
-                    $("#info").empty();
-                    var txt = printLlistaCat();
-                    $("#info").html(txt);
-
-                    $("#selectCategories").empty();
-                    var optiontxt = printSelectCat();
-                    $("#selectCategories").html(optiontxt);
-                    $("#selectCat").html(optiontxt);
+                //ADD CATEGORY
+                $("#cb1").click(function () {
+                    cat = $("#inputCategoria").val();
+                    addCategory(cat);
+                    printAllCategories();
+                    updateSelectCategories();
+                    updateSelectCategoriesProd();
                 });
 
-                $("#b2").click(function(){
-                    var itemMod = $("#selectCategories").val();
-                    var indexMod = categories.indexOf(itemMod);
-                    categories[indexMod] = $("#inputCategoria").val();
-
-                    $("#inputCategoria").val("");
-
-                    $("#info").empty();
-                    var txt = printLlistaCat();
-                    $("#info").html(txt);
-
-                    $("#selectCategories").empty();
-                    var optiontxt = printSelectCat();
-                    $("#selectCategories").html(optiontxt);
-                    $("#selectCat").html(optiontxt);
+                //EDIT CATEGORY 
+                $("#cb2").click(function () {
+                    index = $("#selectCategories option:selected").index();
+                    txt = $("#inputCategoria").val();
+                    changeCategory(txt, index - 1);
+                    printAllCategories();
+                    updateSelectCategories();
+                    updateSelectCategoriesProd();
                 });
 
-                $("#b3").click(function(){
-                    var itemMod = $("#selectCategories").val();
-                    var indexMod = categories.indexOf(itemMod);
-                    categories.splice(indexMod, 1);
-
-                    $("#info").empty();
-                    var txt = printLlistaCat();
-                    $("#info").html(txt);
-
-                    $("#selectCategories").empty();
-                    var optiontxt = printSelectCat();
-                    $("#selectCategories").html(optiontxt);
-                    $("#selectCat").html(optiontxt);
+                //DELETE CATEGORY
+                $("#cb3").click(function () {
+                    index = $("#selectCategories option:selected").index();
+                    removeCategory(index - 1);
+                    printAllCategories();
+                    updateSelectCategories();
+                    updateSelectCategoriesProd();
                 });
 
-                $("#b4").click(function(){
+                //CHANGE CATEGORY
+                $("#selectCategories").change(function () {
+                    index = $("#selectCategories option:selected").index();
+                    if (index > 0) {
+                        txt = $("#selectCategories").val();
+                        $("#inputCategoria").val(txt);
+                    }
+                });
 
-                    var id = $("#inputCodi").val();
-                    var desc = $("#inputDesc").val();
-                    var preu = $("#inputPreu").val();
-                    var categ = $("#selectCat").val();
-
-                    prod = new Product(id, desc, preu, categ);
-
-                    addProduct();
-                    $("#inputCodi").val("");
-                    $("#inputDesc").val("");
-                    $("#inputPreu").val("");
-
+                //ADD PRODUCT
+                $("#pb1").click(function () {
+                    pCodi = $("#inputCodi").val();
+                    pNom = $("#inputDesc").val();
+                    pPreu = $("#inputPreu").val();
+                    pCat = $("#selectCat").val();
+                    p = new Product(pCodi, pNom, pPreu, pCat);
+                    addProduct(p);
                     printAllProducts();
                     updateSelectProducts();
-                    //updateSelectProductsCompra();
+                    updateSelectProductsCompra();
                 });
 
-                $("#b5").click(function(){
-
-                    var itemMod = $("#selectProductes").val();
-                    var indexMod = indexOf2D(productes, idemMod);
-                    index = $("#ps2 option:selected").index();
-                    var codi = $("#inputCodi").val();
-                    var desc = $("#inputDesc").val();
-                    var preu = $("#inputPreu").val();
-                    var categ = $("#selectCat").val();
-
-                    var itemModificat = [indexMod, desc, preu, categ];
-
-                    productes[indexProd] = itemModificat;
-
-                    $("#inputCodi").val("");
-                    $("#inputDesc").val("");
-                    $("#inputPreu").val("");
-
-                    $("#taula_prod").empty();
-                    var prodtable = printTableProd();
-                    $("#taula_prod").html(prodtable);
-
-                    $("#selectProductes").empty();
-                    var prodtxt = printSelectProd();
-                    $("#selectProductes").html(prodtxt);
+                //EDIT PRODUCT 
+                $("#pb2").click(function () {
+                    index = $("#selectProductes option:selected").index();
+                    alert(index);
+                    pCodi = $("#inputCodi").val();
+                    pNom = $("#inputDesc").val();
+                    pPreu = $("#inputPreu").val();
+                    pCat = $("#selectCat").val();
+                    p = new Product(pCodi, pNom, pPreu, pCat);
+                    changeProduct(p, index - 1);
+                    printAllProducts();
+                    updateSelectProducts();
+                    updateSelectProductsCompra();
                 });
 
-            });*/
+                //CHANGE PRODUCT
+                $("#ps2").change(function () {
+                    index = $("#selectProductes option:selected").index();
+                    if (index > 0) {
+                        p = productes[index - 1];
+                        $("#inputCodi").val(p.codi);
+                        $("#inputDesc").val(p.nom);
+                        $("#inputPreu").val(p.preu);
+                        $("#selectCat").val(p.categoria);
+                    }
+                });
+
+                //DELETE PRODUCT
+                $("#pb3").click(function () {
+                    index = $("#selectProductes option:selected").index();
+                    removeProduct(index - 1);
+                    printAllProducts();
+                    updateSelectProducts();
+                    updateSelectProductsCompra();
+                });
+
+                //CHANGE CATEGORY PRODUCTS
+                $("#selectCatCompra").change(function () {
+                    index = $("#selectCatCompra option:selected").index();
+                    if (index > 0) {
+                        cat = $("#selectCatCompra").val();
+                        updateSelectProductsCompraFilter(cat);
+                    }
+                });
+
+                //ADD BUY
+                $("#bb1").click(function () {
+                    codiP = $("#selectProdCompra").val();
+                    quants = $("#selQuant").val();
+                    newC = new Compra(codiP, quants);
+                    addBuy(newC);
+                    printAllBuys();
+                });
+
+                //REMOVE BUY
+                $("#bb2").click(function () {
+                    codiP = $("#selectProdCompra").val();
+                    removeBuy(codiP);
+                    printAllBuys();
+                });
+
+                //APPLY DESCOMPTE
+                $("#bb3").click(function () {
+                    printAllBuys();
+                });
+
+            });
 
         </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <!-- Scripts bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
     </body>
+
 </html>
